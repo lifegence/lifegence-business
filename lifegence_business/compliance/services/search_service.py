@@ -107,7 +107,7 @@ def vector_search(query, limit=10, year=None, company_name=None, classification=
 		dict with results list
 	"""
 	# Generate query embedding
-	from lifegence_compliance.services import embedding_service
+	from lifegence_business.compliance.services import embedding_service
 	query_embedding = embedding_service.generate_query_embedding(query)
 
 	# Build filters
@@ -117,7 +117,7 @@ def vector_search(query, limit=10, year=None, company_name=None, classification=
 	if classification:
 		filters["classifications"] = classification
 
-	from lifegence_compliance.services import qdrant_service
+	from lifegence_business.compliance.services import qdrant_service
 	qdrant_results = qdrant_service.search_vectors(
 		query_vector=query_embedding,
 		limit=limit,

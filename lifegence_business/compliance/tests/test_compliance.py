@@ -219,7 +219,7 @@ class TestClassificationTaxonomy(FrappeTestCase):
 
     def test_taxonomy_api_returns_layers(self):
         """get_taxonomy returns layers A, B, C."""
-        from lifegence_compliance.api.classification import get_taxonomy
+        from lifegence_business.compliance.api.classification import get_taxonomy
         result = get_taxonomy()
         self.assertIn("layers", result)
         self.assertIn("A", result["layers"])
@@ -228,7 +228,7 @@ class TestClassificationTaxonomy(FrappeTestCase):
 
     def test_taxonomy_layer_names(self):
         """Taxonomy layers have correct Japanese names."""
-        from lifegence_compliance.api.classification import get_taxonomy
+        from lifegence_business.compliance.api.classification import get_taxonomy
         result = get_taxonomy()
         self.assertEqual(result["layers"]["A"]["name_en"], "Incident Types")
 
@@ -252,7 +252,7 @@ class TestReportsAPI(FrappeTestCase):
         for i in range(3):
             _create_test_report(filename=f"report_{i}.pdf", company_name=f"Company {i}")
 
-        from lifegence_compliance.api.reports import get_reports
+        from lifegence_business.compliance.api.reports import get_reports
         result = get_reports(page=1, limit=2, company_name=TEST_COMPANY_PREFIX)
         self.assertEqual(len(result["data"]), 2)
         self.assertEqual(result["pagination"]["total"], 3)
@@ -263,7 +263,7 @@ class TestReportsAPI(FrappeTestCase):
         _create_test_report(filename="r2023.pdf", year=2023, company_name="C2023")
         _create_test_report(filename="r2024.pdf", year=2024, company_name="C2024")
 
-        from lifegence_compliance.api.reports import get_reports
+        from lifegence_business.compliance.api.reports import get_reports
         result = get_reports(year=2023, company_name=TEST_COMPANY_PREFIX)
         self.assertEqual(len(result["data"]), 1)
         self.assertEqual(result["data"][0]["year"], 2023)
@@ -271,7 +271,7 @@ class TestReportsAPI(FrappeTestCase):
     def test_get_report_detail(self):
         """get_report returns full report details."""
         report = _create_test_report()
-        from lifegence_compliance.api.reports import get_report
+        from lifegence_business.compliance.api.reports import get_report
         result = get_report(report.name)
         self.assertTrue(result["company_name"].startswith(TEST_COMPANY_PREFIX))
         self.assertEqual(result["year"], 2024)
@@ -295,7 +295,7 @@ class TestClassificationAPI(FrappeTestCase):
     def test_get_stats(self):
         """get_stats returns total and classified counts."""
         _create_test_report()
-        from lifegence_compliance.api.classification import get_stats
+        from lifegence_business.compliance.api.classification import get_stats
         result = get_stats()
         self.assertIn("total_reports", result)
         self.assertIn("classified_reports", result)
@@ -304,7 +304,7 @@ class TestClassificationAPI(FrappeTestCase):
     def test_get_report_classification_empty(self):
         """get_report_classification returns empty for unclassified report."""
         report = _create_test_report()
-        from lifegence_compliance.api.classification import get_report_classification
+        from lifegence_business.compliance.api.classification import get_report_classification
         result = get_report_classification(report.name)
         self.assertEqual(len(result["classifications"]), 0)
         self.assertEqual(result["classification_status"], "Pending")
@@ -318,20 +318,20 @@ class TestSearchAPIValidation(FrappeTestCase):
 
     def test_hybrid_search_requires_query(self):
         """hybrid_search without query raises error."""
-        from lifegence_compliance.api.search import hybrid_search
+        from lifegence_business.compliance.api.search import hybrid_search
         self.assertRaises(Exception, hybrid_search, query=None)
 
     def test_vector_search_requires_query(self):
         """vector_search without query raises error."""
-        from lifegence_compliance.api.search import vector_search
+        from lifegence_business.compliance.api.search import vector_search
         self.assertRaises(Exception, vector_search, query=None)
 
     def test_fulltext_search_requires_query(self):
         """fulltext_search without query raises error."""
-        from lifegence_compliance.api.search import fulltext_search
+        from lifegence_business.compliance.api.search import fulltext_search
         self.assertRaises(Exception, fulltext_search, query=None)
 
     def test_find_similar_requires_report_name(self):
         """find_similar without report_name raises error."""
-        from lifegence_compliance.api.search import find_similar
+        from lifegence_business.compliance.api.search import find_similar
         self.assertRaises(Exception, find_similar, report_name=None)

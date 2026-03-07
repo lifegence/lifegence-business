@@ -93,7 +93,7 @@ def request_esignature(
 				"error": f"Contract must be Approved or Active (current: {contract_status})"
 			}
 
-		from lifegence_contract_approval.api.esignature import create_signature_request
+		from lifegence_business.contract_approval.api.esignature import create_signature_request
 
 		# Ensure signers is a JSON string for the API
 		if isinstance(signers, list):

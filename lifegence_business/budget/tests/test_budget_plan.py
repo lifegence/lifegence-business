@@ -136,7 +136,7 @@ class TestBudgetPlan(FrappeTestCase):
 	def test_api_submit_plan(self):
 		"""Test submit_budget_plan API."""
 		doc = self._create_plan()
-		from lifegence_budget.api.budget_plan import submit_budget_plan
+		from lifegence_business.budget.api.budget_plan import submit_budget_plan
 
 		result = submit_budget_plan(budget_plan=doc.name, action="submit")
 		self.assertTrue(result["success"])

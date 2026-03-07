@@ -60,7 +60,7 @@ def update_corrective_action(action_name, status, completion_date=None, evidence
 def get_overdue_actions(department=None, priority=None):
 	"""Get overdue corrective actions."""
 	try:
-		from lifegence_audit.services.corrective_action_service import get_overdue_actions_data
+		from lifegence_business.audit.services.corrective_action_service import get_overdue_actions_data
 
 		actions = get_overdue_actions_data(department, priority)
 		return {

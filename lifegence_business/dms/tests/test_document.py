@@ -184,7 +184,7 @@ class TestManagedDocument(FrappeTestCase):
 
 	def test_upload_document_api(self):
 		"""TC-DOC07: Upload document via API function."""
-		from lifegence_dms.api.document import upload_document
+		from lifegence_business.dms.api.document import upload_document
 
 		file_url = self._create_test_file()
 		result = upload_document(
@@ -202,7 +202,7 @@ class TestManagedDocument(FrappeTestCase):
 
 	def test_get_document_detail_api(self):
 		"""TC-DOC08: Get document detail via API function."""
-		from lifegence_dms.api.document import get_document_detail
+		from lifegence_business.dms.api.document import get_document_detail
 
 		doc = self._create_document(document_name="詳細取得テスト")
 		result = get_document_detail(document=doc.name)
@@ -227,7 +227,7 @@ class TestManagedDocument(FrappeTestCase):
 		doc = self._create_document(tags="重要,法務,契約")
 		self.assertEqual(doc.tags, "重要,法務,契約")
 
-		from lifegence_dms.api.search import search_documents
+		from lifegence_business.dms.api.search import search_documents
 		result = search_documents(query="法務")
 		self.assertTrue(result["success"])
 		self.assertGreaterEqual(result["count"], 1)

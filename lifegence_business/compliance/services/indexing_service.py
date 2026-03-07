@@ -7,7 +7,7 @@ import uuid
 import frappe
 from frappe.utils import now_datetime
 
-from lifegence_compliance.services import (
+from lifegence_business.compliance.services import (
 	embedding_service,
 	pdf_service,
 	qdrant_service,

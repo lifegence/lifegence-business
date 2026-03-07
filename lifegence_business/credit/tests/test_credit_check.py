@@ -76,7 +76,7 @@ class TestCreditCheck(FrappeTestCase):
 	def test_api_get_credit_status(self):
 		"""Test credit status API."""
 		self._create_credit_limit()
-		from lifegence_credit.api.credit_status import get_credit_status
+		from lifegence_business.credit.api.credit_status import get_credit_status
 
 		result = get_credit_status(customer="_Test CC Customer")
 		self.assertTrue(result["success"])
@@ -84,7 +84,7 @@ class TestCreditCheck(FrappeTestCase):
 
 	def test_api_get_credit_status_not_found(self):
 		"""Test credit status API with non-existent customer."""
-		from lifegence_credit.api.credit_status import get_credit_status
+		from lifegence_business.credit.api.credit_status import get_credit_status
 
 		result = get_credit_status(customer="NONEXISTENT")
 		self.assertFalse(result["success"])
@@ -105,7 +105,7 @@ class TestCreditCheck(FrappeTestCase):
 			credit_check_passed = 0
 			credit_check_note = ""
 
-		from lifegence_credit.credit.services.credit_check import check_credit_on_sales_order
+		from lifegence_business.credit.credit.services.credit_check import check_credit_on_sales_order
 
 		self.assertRaises(
 			frappe.ValidationError,
@@ -115,7 +115,7 @@ class TestCreditCheck(FrappeTestCase):
 
 	def test_risk_scoring_service(self):
 		"""Test standalone risk scoring service."""
-		from lifegence_credit.credit.services.risk_scoring import calculate_risk_score
+		from lifegence_business.credit.credit.services.risk_scoring import calculate_risk_score
 
 		result = calculate_risk_score(
 			revenue=100000000,

@@ -37,7 +37,7 @@ class ComplianceDashboard {
 
 		// Load years for filter
 		frappe.call({
-			method: "lifegence_compliance.api.reports.get_years",
+			method: "lifegence_business.compliance.api.reports.get_years",
 			callback: (r) => {
 				if (r.message) {
 					this.year_filter.append(`<option value="">${__("All Years")}</option>`);
@@ -53,7 +53,7 @@ class ComplianceDashboard {
 
 	load_taxonomy() {
 		frappe.call({
-			method: "lifegence_compliance.api.classification.get_taxonomy",
+			method: "lifegence_business.compliance.api.classification.get_taxonomy",
 			callback: (r) => {
 				if (r.message) {
 					this.taxonomy = r.message;
@@ -111,7 +111,7 @@ class ComplianceDashboard {
 
 	load_stats() {
 		frappe.call({
-			method: "lifegence_compliance.api.reports.get_stats",
+			method: "lifegence_business.compliance.api.reports.get_stats",
 			callback: (r) => {
 				if (r.message) {
 					this.stats = r.message;
@@ -167,9 +167,9 @@ class ComplianceDashboard {
 
 	get_search_method() {
 		const methods = {
-			hybrid: "lifegence_compliance.api.search.hybrid_search",
-			vector: "lifegence_compliance.api.search.vector_search",
-			fulltext: "lifegence_compliance.api.search.fulltext_search",
+			hybrid: "lifegence_business.compliance.api.search.hybrid_search",
+			vector: "lifegence_business.compliance.api.search.vector_search",
+			fulltext: "lifegence_business.compliance.api.search.fulltext_search",
 		};
 		return methods[this.search_type] || methods.hybrid;
 	}

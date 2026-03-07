@@ -3,7 +3,7 @@
 
 """Gemini classification prompts for committee report analysis."""
 
-from lifegence_compliance.classification.taxonomy import format_taxonomy_for_prompt
+from lifegence_business.compliance.classification.taxonomy import format_taxonomy_for_prompt
 
 SYSTEM_PROMPT = """あなたは日本の第三者委員会報告書の分析専門家です。
 報告書のテキストを分析し、3層の分類体系に基づいて構造化された分類結果を返してください。

@@ -117,7 +117,7 @@ class TestBudgetForecast(FrappeTestCase):
 		"""Test update_forecast API."""
 		bp = self._create_approved_plan()
 		fc = self._create_forecast(bp.name)
-		from lifegence_budget.api.forecast import update_forecast
+		from lifegence_business.budget.api.forecast import update_forecast
 
 		result = update_forecast(
 			budget_forecast=fc.name,

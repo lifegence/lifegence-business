@@ -80,7 +80,7 @@ class TestRiskAssessment(FrappeTestCase):
 	def test_api_create_assessment(self):
 		"""Test create_risk_assessment API."""
 		risk = self._create_risk()
-		from lifegence_audit.api.risk import create_risk_assessment
+		from lifegence_business.audit.api.risk import create_risk_assessment
 
 		result = create_risk_assessment(
 			risk_register=risk.name,

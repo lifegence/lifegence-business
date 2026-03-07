@@ -98,7 +98,7 @@ class TestHDDashboard(FrappeTestCase):
 
 	def test_dashboard_counts(self):
 		"""TC-DB01: Verify Open/In Progress/Resolved counts."""
-		from lifegence_helpdesk.api.dashboard import get_helpdesk_dashboard
+		from lifegence_business.helpdesk.api.dashboard import get_helpdesk_dashboard
 
 		result = get_helpdesk_dashboard()
 		self.assertTrue(result["success"])
@@ -112,7 +112,7 @@ class TestHDDashboard(FrappeTestCase):
 
 	def test_sla_compliance_rate(self):
 		"""TC-DB02: Verify SLA compliance rate calculation."""
-		from lifegence_helpdesk.api.dashboard import get_helpdesk_dashboard
+		from lifegence_business.helpdesk.api.dashboard import get_helpdesk_dashboard
 
 		result = get_helpdesk_dashboard()
 		self.assertTrue(result["success"])

@@ -251,7 +251,7 @@ class TestHDTicket(FrappeTestCase):
 
 	def test_create_ticket_api(self):
 		"""TC-TK10: Create a ticket via the API function."""
-		from lifegence_helpdesk.api.ticket import create_ticket
+		from lifegence_business.helpdesk.api.ticket import create_ticket
 
 		result = create_ticket(
 			subject="API経由チケット",

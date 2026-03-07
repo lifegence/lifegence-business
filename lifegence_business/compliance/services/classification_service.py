@@ -8,17 +8,17 @@ import frappe
 import google.generativeai as genai
 from frappe.utils import now_datetime
 
-from lifegence_compliance.classification.prompts import (
+from lifegence_business.compliance.classification.prompts import (
 	get_analysis_prompt,
 	get_chunk_analysis_prompt,
 	get_system_prompt,
 )
-from lifegence_compliance.classification.taxonomy import get_category
+from lifegence_business.compliance.classification.taxonomy import get_category
 
 
 def _configure_genai():
 	"""Configure the Gemini API client and return settings."""
-	from lifegence_compliance.compliance.doctype.compliance_settings.compliance_settings import ComplianceSettings
+	from lifegence_business.compliance.compliance.doctype.compliance_settings.compliance_settings import ComplianceSettings
 	settings = frappe.get_single("Compliance Settings")
 	api_key = ComplianceSettings.get_gemini_api_key()
 	if not api_key:
@@ -342,7 +342,7 @@ def _normalize_classification_result(result):
 def _update_qdrant_classifications(report_name, classifications):
 	"""Update Qdrant point payloads with classification codes."""
 	try:
-		from lifegence_compliance.services.qdrant_service import get_client, get_collection_name
+		from lifegence_business.compliance.services.qdrant_service import get_client, get_collection_name
 		from qdrant_client.models import Filter, FieldCondition, MatchValue
 
 		client = get_client()

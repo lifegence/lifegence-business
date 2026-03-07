@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
-from lifegence_compliance.services import search_service
+from lifegence_business.compliance.services import search_service
 
 
 @frappe.whitelist()

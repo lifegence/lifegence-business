@@ -9,7 +9,7 @@ from typing import Dict, Any, Optional
 def get_audit_status_summary(fiscal_year: Optional[str] = None) -> Dict[str, Any]:
 	"""Get audit status summary for AI chat."""
 	try:
-		from lifegence_audit.api.audit import get_audit_dashboard
+		from lifegence_business.audit.api.audit import get_audit_dashboard
 
 		result = get_audit_dashboard(fiscal_year=fiscal_year)
 		if not result.get("success"):

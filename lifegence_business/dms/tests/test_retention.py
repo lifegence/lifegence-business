@@ -95,7 +95,7 @@ class TestRetentionPolicy(FrappeTestCase):
 
 	def test_check_retention_status_api(self):
 		"""TC-RET04: Check retention status via API."""
-		from lifegence_dms.api.retention import check_retention_status
+		from lifegence_business.dms.api.retention import check_retention_status
 
 		doc = self._create_document(retention_policy="テスト7年保存")
 		result = check_retention_status(document=doc.name)

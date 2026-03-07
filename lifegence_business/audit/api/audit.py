@@ -8,9 +8,9 @@ import frappe
 def get_audit_dashboard(fiscal_year=None):
 	"""Get comprehensive audit dashboard data."""
 	try:
-		from lifegence_audit.services.audit_service import get_audit_plan_summary, get_findings_summary
-		from lifegence_audit.services.corrective_action_service import get_overdue_actions_data
-		from lifegence_audit.services.risk_service import get_risk_summary_data
+		from lifegence_business.audit.services.audit_service import get_audit_plan_summary, get_findings_summary
+		from lifegence_business.audit.services.corrective_action_service import get_overdue_actions_data
+		from lifegence_business.audit.services.risk_service import get_risk_summary_data
 
 		plan_summary = get_audit_plan_summary(fiscal_year)
 		findings_summary = get_findings_summary(fiscal_year)

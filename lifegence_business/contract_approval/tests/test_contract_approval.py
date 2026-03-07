@@ -170,7 +170,7 @@ class TestApprovalWorkflow(FrappeTestCase):
 
     def test_submit_for_approval(self):
         """submit_for_approval should change status to Pending Approval."""
-        from lifegence_contract_approval.api.approval import submit_for_approval
+        from lifegence_business.contract_approval.api.approval import submit_for_approval
 
         contract = _create_contract(title="Test Contract WF Submit", contract_amount=500000)
         result = submit_for_approval(contract.name)
@@ -181,7 +181,7 @@ class TestApprovalWorkflow(FrappeTestCase):
 
     def test_submit_non_draft_fails(self):
         """submit_for_approval on non-draft contract should fail."""
-        from lifegence_contract_approval.api.approval import submit_for_approval
+        from lifegence_business.contract_approval.api.approval import submit_for_approval
 
         contract = _create_contract(title="Test Contract WF NonDraft", contract_amount=500000)
         contract.db_set("status", "Approved")
@@ -192,7 +192,7 @@ class TestApprovalWorkflow(FrappeTestCase):
 
     def test_approve_contract(self):
         """approve_contract should set status to Approved."""
-        from lifegence_contract_approval.api.approval import (
+        from lifegence_business.contract_approval.api.approval import (
             submit_for_approval,
             approve_contract,
         )
@@ -208,7 +208,7 @@ class TestApprovalWorkflow(FrappeTestCase):
 
     def test_reject_contract(self):
         """reject_contract should set status to Rejected."""
-        from lifegence_contract_approval.api.approval import (
+        from lifegence_business.contract_approval.api.approval import (
             submit_for_approval,
             reject_contract,
         )
@@ -223,7 +223,7 @@ class TestApprovalWorkflow(FrappeTestCase):
 
     def test_approval_creates_log(self):
         """Approval actions should create Contract Approval Log entries."""
-        from lifegence_contract_approval.api.approval import submit_for_approval
+        from lifegence_business.contract_approval.api.approval import submit_for_approval
 
         contract = _create_contract(title="Test Contract WF Log", contract_amount=500000)
         submit_for_approval(contract.name)

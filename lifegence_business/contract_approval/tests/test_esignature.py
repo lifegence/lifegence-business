@@ -160,7 +160,7 @@ class TestESignatureRequest(FrappeTestCase):
 
     def test_send_signature_request_api(self):
         """TC-ES06: API should create request and change status to Sent."""
-        from lifegence_contract_approval.api.esignature import create_signature_request
+        from lifegence_business.contract_approval.api.esignature import create_signature_request
 
         contract = _create_contract(title="Test ES Contract Send")
         result = create_signature_request(
@@ -180,7 +180,7 @@ class TestESignatureRequest(FrappeTestCase):
 
     def test_check_signature_status(self):
         """TC-ES07: Should return status for a signature request."""
-        from lifegence_contract_approval.api.esignature import (
+        from lifegence_business.contract_approval.api.esignature import (
             create_signature_request,
             check_signature_status,
         )
@@ -205,7 +205,7 @@ class TestESignatureRequest(FrappeTestCase):
 
     def test_duplicate_request_prevention(self):
         """TC-ES10: Should prevent duplicate active requests for same contract."""
-        from lifegence_contract_approval.api.esignature import create_signature_request
+        from lifegence_business.contract_approval.api.esignature import create_signature_request
 
         contract = _create_contract(title="Test ES Contract Dup")
         create_signature_request(
@@ -246,7 +246,7 @@ class TestESignatureLog(FrappeTestCase):
 
     def test_signature_log_creation(self):
         """TC-ES08: Sending a request should create a log entry."""
-        from lifegence_contract_approval.api.esignature import create_signature_request
+        from lifegence_business.contract_approval.api.esignature import create_signature_request
 
         contract = _create_contract(title="Test ES Contract Log")
         result = create_signature_request(
@@ -265,7 +265,7 @@ class TestESignatureLog(FrappeTestCase):
 
     def test_signature_log_append_only(self):
         """TC-ES09: Log entries should be append-only (no modification)."""
-        from lifegence_contract_approval.api.esignature import create_signature_request
+        from lifegence_business.contract_approval.api.esignature import create_signature_request
 
         contract = _create_contract(title="Test ES Contract LogAppend")
         result = create_signature_request(

@@ -112,7 +112,7 @@ class TestAntiSocialCheck(FrappeTestCase):
 	def test_api_get_check_status(self):
 		"""Test API to get check status."""
 		self._create_check()
-		from lifegence_credit.api.anti_social import get_check_status
+		from lifegence_business.credit.api.anti_social import get_check_status
 
 		result = get_check_status(customer="_Test ASC Customer")
 		self.assertTrue(result["success"])
@@ -120,7 +120,7 @@ class TestAntiSocialCheck(FrappeTestCase):
 
 	def test_api_run_check(self):
 		"""Test API to create a new check."""
-		from lifegence_credit.api.anti_social import run_anti_social_check
+		from lifegence_business.credit.api.anti_social import run_anti_social_check
 
 		result = run_anti_social_check(
 			customer="_Test ASC Customer",

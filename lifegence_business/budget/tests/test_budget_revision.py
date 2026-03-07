@@ -94,7 +94,7 @@ class TestBudgetRevision(FrappeTestCase):
 	def test_api_create_revision(self):
 		"""Test create_revision API."""
 		bp = self._create_approved_plan()
-		from lifegence_budget.api.budget_plan import create_revision
+		from lifegence_business.budget.api.budget_plan import create_revision
 
 		account = frappe.db.get_value("Account", {"company": self._get_test_company(), "is_group": 0}, "name") or "Office Expenses - _TC"
 		result = create_revision(

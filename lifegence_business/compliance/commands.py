@@ -16,7 +16,7 @@ def compliance_import(context, base_path=None):
 	frappe.connect()
 
 	try:
-		from lifegence_compliance.services.scraper_service import import_from_downloaded
+		from lifegence_business.compliance.services.scraper_service import import_from_downloaded
 
 		print(f"Importing reports from: {base_path or 'Compliance Settings path'}")
 		result = import_from_downloaded(base_path)
@@ -41,7 +41,7 @@ def compliance_index(context, limit=None, report=None):
 	frappe.connect()
 
 	try:
-		from lifegence_compliance.services.indexing_service import (
+		from lifegence_business.compliance.services.indexing_service import (
 			index_all_pending,
 			index_report,
 		)
@@ -75,7 +75,7 @@ def compliance_classify(context, limit=None, report=None, force=False):
 	frappe.connect()
 
 	try:
-		from lifegence_compliance.services.classification_service import (
+		from lifegence_business.compliance.services.classification_service import (
 			classify_all_pending,
 			classify_report,
 		)
@@ -121,7 +121,7 @@ def compliance_stats(context):
 
 		# Qdrant info
 		try:
-			from lifegence_compliance.services.qdrant_service import get_collection_info
+			from lifegence_business.compliance.services.qdrant_service import get_collection_info
 			info = get_collection_info()
 			print(f"\n=== Qdrant ===")
 			print(f"Collection:         {info['name']}")
@@ -153,7 +153,7 @@ def compliance_setup_qdrant(context):
 	frappe.connect()
 
 	try:
-		from lifegence_compliance.services.qdrant_service import ensure_collection, get_collection_info
+		from lifegence_business.compliance.services.qdrant_service import ensure_collection, get_collection_info
 
 		collection = ensure_collection()
 		info = get_collection_info()

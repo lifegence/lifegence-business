@@ -121,7 +121,7 @@ class TestCreditLimit(FrappeTestCase):
 	def test_api_update_credit_limit(self):
 		"""Test credit limit update via API."""
 		doc = self._create_credit_limit()
-		from lifegence_credit.api.credit_limit import update_credit_limit
+		from lifegence_business.credit.api.credit_limit import update_credit_limit
 
 		result = update_credit_limit(
 			customer="_Test CL Customer",

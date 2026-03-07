@@ -68,7 +68,7 @@ class TestHDKnowledgeBase(FrappeTestCase):
 			tags="VPN,ネットワーク",
 		)
 
-		from lifegence_helpdesk.api.knowledge_base import search_knowledge_base
+		from lifegence_business.helpdesk.api.knowledge_base import search_knowledge_base
 		result = search_knowledge_base(query="VPN")
 
 		self.assertTrue(result["success"])
@@ -91,7 +91,7 @@ class TestHDKnowledgeBase(FrappeTestCase):
 			visibility="外部公開",
 		)
 
-		from lifegence_helpdesk.api.knowledge_base import search_knowledge_base
+		from lifegence_business.helpdesk.api.knowledge_base import search_knowledge_base
 
 		# Search for external-visible articles
 		result = search_knowledge_base(visibility="外部公開")
@@ -107,7 +107,7 @@ class TestHDKnowledgeBase(FrappeTestCase):
 		article = self._create_article(title="便利な記事")
 		self.assertEqual(article.helpful_count, 0)
 
-		from lifegence_helpdesk.api.knowledge_base import mark_helpful
+		from lifegence_business.helpdesk.api.knowledge_base import mark_helpful
 		result = mark_helpful(article=article.name)
 
 		self.assertTrue(result["success"])

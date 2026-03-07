@@ -49,7 +49,7 @@ class TestBudgetAPI(FrappeTestCase):
 		bp.status = "Approved"
 		bp.save(ignore_permissions=True)
 
-		from lifegence_budget.api.budget_actual import get_budget_vs_actual
+		from lifegence_business.budget.api.budget_actual import get_budget_vs_actual
 
 		result = get_budget_vs_actual(
 			company=bp.company,
@@ -61,7 +61,7 @@ class TestBudgetAPI(FrappeTestCase):
 	def test_submit_budget_plan(self):
 		"""Test submit_budget_plan API."""
 		bp = self._create_plan()
-		from lifegence_budget.api.budget_plan import submit_budget_plan
+		from lifegence_business.budget.api.budget_plan import submit_budget_plan
 
 		result = submit_budget_plan(budget_plan=bp.name, action="submit")
 		self.assertTrue(result["success"])
@@ -74,7 +74,7 @@ class TestBudgetAPI(FrappeTestCase):
 		bp.save(ignore_permissions=True)
 
 		account = frappe.db.get_value("Account", {"company": self._get_test_company(), "is_group": 0}, "name") or "Office Expenses - _TC"
-		from lifegence_budget.api.budget_plan import create_revision
+		from lifegence_business.budget.api.budget_plan import create_revision
 
 		result = create_revision(
 			budget_plan=bp.name,
@@ -100,7 +100,7 @@ class TestBudgetAPI(FrappeTestCase):
 		})
 		fc.insert(ignore_permissions=True)
 
-		from lifegence_budget.api.forecast import update_forecast
+		from lifegence_business.budget.api.forecast import update_forecast
 
 		result = update_forecast(
 			budget_forecast=fc.name,

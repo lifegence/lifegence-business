@@ -9,7 +9,7 @@ from frappe.utils import today
 def get_risk_matrix(department=None, risk_category=None, jsox_only=False):
 	"""Get risk matrix (heatmap) data."""
 	try:
-		from lifegence_audit.services.risk_service import get_risk_matrix_data
+		from lifegence_business.audit.services.risk_service import get_risk_matrix_data
 
 		if isinstance(jsox_only, str):
 			jsox_only = jsox_only.lower() in ("true", "1")
@@ -25,7 +25,7 @@ def get_risk_matrix(department=None, risk_category=None, jsox_only=False):
 def get_risk_summary(department=None, status=None):
 	"""Get risk register summary."""
 	try:
-		from lifegence_audit.services.risk_service import get_risk_summary_data
+		from lifegence_business.audit.services.risk_service import get_risk_summary_data
 
 		data = get_risk_summary_data(department, status)
 		return {"success": True, "data": data}

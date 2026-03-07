@@ -57,7 +57,7 @@ class TestAuditAPI(FrappeTestCase):
 	def test_audit_dashboard(self):
 		"""Test get_audit_dashboard API."""
 		self._setup_test_data()
-		from lifegence_audit.api.audit import get_audit_dashboard
+		from lifegence_business.audit.api.audit import get_audit_dashboard
 
 		result = get_audit_dashboard()
 		self.assertTrue(result["success"])
@@ -68,7 +68,7 @@ class TestAuditAPI(FrappeTestCase):
 	def test_create_finding_api(self):
 		"""Test create_finding API."""
 		_, eng = self._setup_test_data()
-		from lifegence_audit.api.finding import create_finding
+		from lifegence_business.audit.api.finding import create_finding
 
 		result = create_finding(
 			audit_engagement=eng.name,
@@ -83,7 +83,7 @@ class TestAuditAPI(FrappeTestCase):
 
 	def test_get_findings_api(self):
 		"""Test get_findings API."""
-		from lifegence_audit.api.finding import get_findings
+		from lifegence_business.audit.api.finding import get_findings
 
 		result = get_findings()
 		self.assertTrue(result["success"])
@@ -103,7 +103,7 @@ class TestAuditAPI(FrappeTestCase):
 			"risk_owner": frappe.session.user,
 		}).insert(ignore_permissions=True)
 
-		from lifegence_audit.api.risk import get_risk_matrix
+		from lifegence_business.audit.api.risk import get_risk_matrix
 
 		result = get_risk_matrix()
 		self.assertTrue(result["success"])
@@ -111,7 +111,7 @@ class TestAuditAPI(FrappeTestCase):
 
 	def test_risk_summary_api(self):
 		"""Test get_risk_summary API."""
-		from lifegence_audit.api.risk import get_risk_summary
+		from lifegence_business.audit.api.risk import get_risk_summary
 
 		result = get_risk_summary()
 		self.assertTrue(result["success"])
@@ -119,7 +119,7 @@ class TestAuditAPI(FrappeTestCase):
 
 	def test_overdue_actions_api(self):
 		"""Test get_overdue_actions API."""
-		from lifegence_audit.api.corrective_action import get_overdue_actions
+		from lifegence_business.audit.api.corrective_action import get_overdue_actions
 
 		result = get_overdue_actions()
 		self.assertTrue(result["success"])

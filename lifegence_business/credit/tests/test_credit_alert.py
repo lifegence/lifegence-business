@@ -90,7 +90,7 @@ class TestCreditAlert(FrappeTestCase):
 
 	def test_no_duplicate_open_alerts(self):
 		"""Test that duplicate open alerts are prevented by alert_generator."""
-		from lifegence_credit.credit.services.balance_calculator import _create_alert_if_not_exists
+		from lifegence_business.credit.credit.services.balance_calculator import _create_alert_if_not_exists
 
 		# Create first alert
 		_create_alert_if_not_exists(

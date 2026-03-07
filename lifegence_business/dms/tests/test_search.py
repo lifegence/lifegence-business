@@ -72,7 +72,7 @@ class TestDocumentSearch(FrappeTestCase):
 
 	def test_search_by_keyword(self):
 		"""TC-SRC01: Search documents by keyword."""
-		from lifegence_dms.api.search import search_documents
+		from lifegence_business.dms.api.search import search_documents
 
 		result = search_documents(query="就業規則")
 		self.assertTrue(result["success"])
@@ -84,7 +84,7 @@ class TestDocumentSearch(FrappeTestCase):
 
 	def test_search_by_folder(self):
 		"""TC-SRC02: Search documents within a specific folder."""
-		from lifegence_dms.api.search import search_documents
+		from lifegence_business.dms.api.search import search_documents
 
 		result = search_documents(folder="検索テスト")
 		self.assertTrue(result["success"])
@@ -94,7 +94,7 @@ class TestDocumentSearch(FrappeTestCase):
 
 	def test_search_by_document_type(self):
 		"""TC-SRC03: Filter documents by document type."""
-		from lifegence_dms.api.search import search_documents
+		from lifegence_business.dms.api.search import search_documents
 
 		result = search_documents(document_type="契約書")
 		self.assertTrue(result["success"])

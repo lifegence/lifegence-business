@@ -95,7 +95,7 @@ class TestCorrectiveAction(FrappeTestCase):
 		action = self._create_action(finding.name, due_date=add_days(today(), -5))
 		self.assertEqual(action.status, "Open")
 
-		from lifegence_audit.services.corrective_action_service import check_overdue_actions
+		from lifegence_business.audit.services.corrective_action_service import check_overdue_actions
 		check_overdue_actions()
 
 		action.reload()
@@ -115,7 +115,7 @@ class TestCorrectiveAction(FrappeTestCase):
 	def test_api_create_action(self):
 		"""Test create_corrective_action API."""
 		finding = self._create_finding()
-		from lifegence_audit.api.corrective_action import create_corrective_action
+		from lifegence_business.audit.api.corrective_action import create_corrective_action
 
 		result = create_corrective_action(
 			audit_finding=finding.name,

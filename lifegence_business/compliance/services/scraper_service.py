@@ -8,7 +8,7 @@ import re
 import frappe
 from bs4 import BeautifulSoup
 
-from lifegence_compliance.services.pdf_service import compute_file_hash
+from lifegence_business.compliance.services.pdf_service import compute_file_hash
 
 
 def parse_year_page(year_dir):

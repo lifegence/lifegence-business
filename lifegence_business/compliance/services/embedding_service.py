@@ -10,7 +10,7 @@ def _configure_genai():
 	"""Configure the Gemini API client."""
 	import google.generativeai as genai
 
-	from lifegence_compliance.compliance.doctype.compliance_settings.compliance_settings import ComplianceSettings
+	from lifegence_business.compliance.compliance.doctype.compliance_settings.compliance_settings import ComplianceSettings
 	settings = frappe.get_single("Compliance Settings")
 	api_key = ComplianceSettings.get_gemini_api_key()
 	if not api_key:

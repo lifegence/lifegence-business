@@ -138,7 +138,7 @@ class TestDocumentAccess(FrappeTestCase):
 
 	def test_access_log_api(self):
 		"""TC-ACC05: Log document access via API function."""
-		from lifegence_dms.api.access import log_document_access
+		from lifegence_business.dms.api.access import log_document_access
 
 		doc = self._create_document()
 		result = log_document_access(document=doc.name, access_type="Download")

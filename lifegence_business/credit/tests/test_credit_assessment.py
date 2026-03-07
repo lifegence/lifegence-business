@@ -205,7 +205,7 @@ class TestCreditAssessment(FrappeTestCase):
 
 	def test_api_create_assessment(self):
 		"""Test assessment creation via API."""
-		from lifegence_credit.api.assessment import create_assessment
+		from lifegence_business.credit.api.assessment import create_assessment
 
 		result = create_assessment(
 			customer="_Test Credit Customer",

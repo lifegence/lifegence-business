@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
-from lifegence_compliance.classification.taxonomy import get_all_categories, get_layer
+from lifegence_business.compliance.classification.taxonomy import get_all_categories, get_layer
 
 
 @frappe.whitelist()
@@ -47,7 +47,7 @@ def analyze_text(text=None):
 	if not text:
 		frappe.throw("Text parameter is required")
 
-	from lifegence_compliance.services.classification_service import classify_text
+	from lifegence_business.compliance.services.classification_service import classify_text
 	return classify_text(text)
 
 
