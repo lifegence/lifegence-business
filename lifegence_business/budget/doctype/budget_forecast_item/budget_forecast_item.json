@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "account",
+  "account_name",
+  "budget_amount",
+  "actual_to_date",
+  "forecast_remaining",
+  "forecast_annual",
+  "variance",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "勘定科目",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "勘定科目名",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "budget_amount",
+   "fieldtype": "Currency",
+   "label": "予算額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "actual_to_date",
+   "fieldtype": "Currency",
+   "label": "実績累計額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "forecast_remaining",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "残期間見込み額"
+  },
+  {
+   "default": "0",
+   "fieldname": "forecast_annual",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "通期着地見込み額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "variance",
+   "fieldtype": "Currency",
+   "label": "予算差異",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "見込み根拠"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget Forecast Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "states": []
+}

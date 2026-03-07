@@ -1,0 +1,280 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-03-03 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "customer",
+    "customer_name",
+    "column_break_basic",
+    "company",
+    "alert_info_section",
+    "alert_type",
+    "severity",
+    "column_break_alert",
+    "alert_message",
+    "numeric_section",
+    "threshold_value",
+    "current_value",
+    "column_break_numeric",
+    "excess_amount",
+    "overdue_days",
+    "status_section",
+    "status",
+    "created_date",
+    "column_break_status",
+    "acknowledged_by",
+    "acknowledged_date",
+    "resolution_section",
+    "resolved_by",
+    "resolved_date",
+    "column_break_resolution",
+    "resolution_note",
+    "related_section",
+    "credit_limit",
+    "credit_assessment",
+    "column_break_related2",
+    "anti_social_check"
+  ],
+  "fields": [
+    {
+      "default": "CAL-.#####",
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "hidden": 1,
+      "label": "Naming Series",
+      "options": "CAL-.#####"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "取引先",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fetch_from": "customer.customer_name",
+      "fieldname": "customer_name",
+      "fieldtype": "Data",
+      "label": "取引先名",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "会社",
+      "options": "Company"
+    },
+    {
+      "fieldname": "alert_info_section",
+      "fieldtype": "Section Break",
+      "label": "アラート情報"
+    },
+    {
+      "fieldname": "alert_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "アラート種別",
+      "options": "限度額超過\n期限切れ間近\n審査期限\n支払遅延\n反社チェック期限",
+      "reqd": 1
+    },
+    {
+      "default": "Medium",
+      "fieldname": "severity",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "深刻度",
+      "options": "Low\nMedium\nHigh\nCritical"
+    },
+    {
+      "fieldname": "column_break_alert",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "alert_message",
+      "fieldtype": "Small Text",
+      "label": "アラートメッセージ",
+      "reqd": 1
+    },
+    {
+      "fieldname": "numeric_section",
+      "fieldtype": "Section Break",
+      "label": "数値情報"
+    },
+    {
+      "fieldname": "threshold_value",
+      "fieldtype": "Currency",
+      "label": "閾値"
+    },
+    {
+      "fieldname": "current_value",
+      "fieldtype": "Currency",
+      "label": "現在値"
+    },
+    {
+      "fieldname": "column_break_numeric",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "excess_amount",
+      "fieldtype": "Currency",
+      "label": "超過額",
+      "read_only": 1
+    },
+    {
+      "fieldname": "overdue_days",
+      "fieldtype": "Int",
+      "label": "遅延日数"
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "ステータス"
+    },
+    {
+      "default": "Open",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "ステータス",
+      "options": "Open\nAcknowledged\nResolved"
+    },
+    {
+      "default": "Now",
+      "fieldname": "created_date",
+      "fieldtype": "Datetime",
+      "label": "作成日時",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_status",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "acknowledged_by",
+      "fieldtype": "Link",
+      "label": "確認者",
+      "options": "User"
+    },
+    {
+      "fieldname": "acknowledged_date",
+      "fieldtype": "Datetime",
+      "label": "確認日時"
+    },
+    {
+      "fieldname": "resolution_section",
+      "fieldtype": "Section Break",
+      "label": "解決"
+    },
+    {
+      "fieldname": "resolved_by",
+      "fieldtype": "Link",
+      "label": "解決者",
+      "options": "User"
+    },
+    {
+      "fieldname": "resolved_date",
+      "fieldtype": "Datetime",
+      "label": "解決日時"
+    },
+    {
+      "fieldname": "column_break_resolution",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "resolution_note",
+      "fieldtype": "Small Text",
+      "label": "解決メモ"
+    },
+    {
+      "fieldname": "related_section",
+      "fieldtype": "Section Break",
+      "label": "関連情報",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "credit_limit",
+      "fieldtype": "Link",
+      "label": "関連与信枠",
+      "options": "Credit Limit"
+    },
+    {
+      "fieldname": "credit_assessment",
+      "fieldtype": "Link",
+      "label": "関連審査",
+      "options": "Credit Assessment"
+    },
+    {
+      "fieldname": "column_break_related2",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "anti_social_check",
+      "fieldtype": "Link",
+      "label": "関連反社チェック",
+      "options": "Anti-Social Check"
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 0,
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Credit Alert",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Approver",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Sales User"
+    }
+  ],
+  "sort_field": "created_date",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

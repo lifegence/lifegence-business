@@ -1,0 +1,152 @@
+{
+	"charts": [],
+	"content": "[{\"id\":\"heading\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>契約・承認</b></span>\",\"col\":12}},{\"id\":\"sc1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contract\",\"col\":4}},{\"id\":\"sc2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contract Template\",\"col\":4}},{\"id\":\"sc3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contract Approval Rule\",\"col\":4}},{\"id\":\"sc4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"E-Signature Request\",\"col\":4}}]",
+	"creation": "2026-02-14 00:00:00.000000",
+	"custom_blocks": [],
+	"doctype": "Workspace",
+	"for_user": "",
+	"hide_custom": 0,
+	"icon": "file",
+	"idx": 0,
+	"is_hidden": 0,
+	"label": "Contract Approval",
+	"links": [
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Contracts",
+			"link_count": 0,
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Contract",
+			"link_count": 0,
+			"link_to": "Contract",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Contract Template",
+			"link_count": 0,
+			"link_to": "Contract Template",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Approval",
+			"link_count": 0,
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Contract Approval Rule",
+			"link_count": 0,
+			"link_to": "Contract Approval Rule",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Contract Approval Log",
+			"link_count": 0,
+			"link_to": "Contract Approval Log",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "E-Signature",
+			"link_count": 0,
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "E-Signature Provider Settings",
+			"link_count": 0,
+			"link_to": "E-Signature Provider Settings",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "E-Signature Request",
+			"link_count": 0,
+			"link_to": "E-Signature Request",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "E-Signature Log",
+			"link_count": 0,
+			"link_to": "E-Signature Log",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		}
+	],
+	"modified": "2026-02-14 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Contract Approval",
+	"name": "Contract Approval",
+	"number_cards": [],
+	"owner": "Administrator",
+	"parent_page": "",
+	"public": 1,
+	"restrict_to_domain": "",
+	"roles": [],
+	"sequence_id": 53.0,
+	"shortcuts": [
+		{
+			"color": "Blue",
+			"doc_view": "List",
+			"label": "Contract",
+			"link_to": "Contract",
+			"type": "DocType"
+		},
+		{
+			"color": "Green",
+			"doc_view": "List",
+			"label": "Contract Template",
+			"link_to": "Contract Template",
+			"type": "DocType"
+		},
+		{
+			"color": "Orange",
+			"doc_view": "List",
+			"label": "Contract Approval Rule",
+			"link_to": "Contract Approval Rule",
+			"type": "DocType"
+		},
+		{
+			"color": "Purple",
+			"doc_view": "List",
+			"label": "E-Signature Request",
+			"link_to": "E-Signature Request",
+			"type": "DocType"
+		}
+	],
+	"title": "契約管理",
+	"type": "Workspace"
+}

@@ -1,0 +1,85 @@
+{
+ "charts": [],
+ "content": null,
+ "creation": "2026-03-03 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "budget",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Budget",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "予算計画",
+   "link_count": 0,
+   "link_to": "Budget Plan",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "予算修正",
+   "link_count": 0,
+   "link_to": "Budget Revision",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "着地見込み",
+   "link_count": 0,
+   "link_to": "Budget Forecast",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "予実対比レポート",
+   "link_count": 0,
+   "link_to": "Budget vs Actual",
+   "link_type": "Report",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "予算管理設定",
+   "link_count": 0,
+   "link_to": "Budget Settings",
+   "link_type": "DocType",
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 30.0,
+ "shortcuts": [
+  {
+   "label": "予算計画",
+   "link_to": "Budget Plan",
+   "type": "DocType"
+  },
+  {
+   "label": "予実対比レポート",
+   "link_to": "Budget vs Actual",
+   "type": "Report"
+  }
+ ],
+ "title": "予算管理"
+}

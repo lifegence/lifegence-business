@@ -1,0 +1,91 @@
+{
+	"actions": [],
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"section_break_general",
+		"enable_version_control",
+		"enable_access_logging",
+		"column_break_general",
+		"e_book_preservation_enabled",
+		"section_break_limits",
+		"default_retention_years",
+		"column_break_limits",
+		"max_file_size_mb"
+	],
+	"fields": [
+		{
+			"fieldname": "section_break_general",
+			"fieldtype": "Section Break",
+			"label": "一般設定"
+		},
+		{
+			"default": "1",
+			"fieldname": "enable_version_control",
+			"fieldtype": "Check",
+			"in_list_view": 1,
+			"label": "バージョン管理を有効にする"
+		},
+		{
+			"default": "1",
+			"fieldname": "enable_access_logging",
+			"fieldtype": "Check",
+			"label": "アクセスログを有効にする"
+		},
+		{
+			"fieldname": "column_break_general",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "0",
+			"fieldname": "e_book_preservation_enabled",
+			"fieldtype": "Check",
+			"label": "電子帳簿保存法対応を有効にする"
+		},
+		{
+			"fieldname": "section_break_limits",
+			"fieldtype": "Section Break",
+			"label": "制限設定"
+		},
+		{
+			"default": "7",
+			"fieldname": "default_retention_years",
+			"fieldtype": "Int",
+			"label": "デフォルト保存年数"
+		},
+		{
+			"fieldname": "column_break_limits",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "50",
+			"fieldname": "max_file_size_mb",
+			"fieldtype": "Int",
+			"label": "最大ファイルサイズ(MB)"
+		}
+	],
+	"issingle": 1,
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "DMS Settings",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"print": 1,
+			"read": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

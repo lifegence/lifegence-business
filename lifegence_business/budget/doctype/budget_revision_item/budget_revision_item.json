@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "account",
+  "account_name",
+  "original_annual_total",
+  "revised_annual_total",
+  "change_amount",
+  "revised_month_1",
+  "revised_month_2",
+  "revised_month_3",
+  "revised_month_4",
+  "revised_month_5",
+  "revised_month_6",
+  "revised_month_7",
+  "revised_month_8",
+  "revised_month_9",
+  "revised_month_10",
+  "revised_month_11",
+  "revised_month_12",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "勘定科目",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "勘定科目名",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "original_annual_total",
+   "fieldtype": "Currency",
+   "label": "修正前年間合計",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "revised_annual_total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "修正後年間合計",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "change_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "増減金額",
+   "read_only": 1
+  },
+  {"default": "0", "fieldname": "revised_month_1", "fieldtype": "Currency", "label": "修正後第1月"},
+  {"default": "0", "fieldname": "revised_month_2", "fieldtype": "Currency", "label": "修正後第2月"},
+  {"default": "0", "fieldname": "revised_month_3", "fieldtype": "Currency", "label": "修正後第3月"},
+  {"default": "0", "fieldname": "revised_month_4", "fieldtype": "Currency", "label": "修正後第4月"},
+  {"default": "0", "fieldname": "revised_month_5", "fieldtype": "Currency", "label": "修正後第5月"},
+  {"default": "0", "fieldname": "revised_month_6", "fieldtype": "Currency", "label": "修正後第6月"},
+  {"default": "0", "fieldname": "revised_month_7", "fieldtype": "Currency", "label": "修正後第7月"},
+  {"default": "0", "fieldname": "revised_month_8", "fieldtype": "Currency", "label": "修正後第8月"},
+  {"default": "0", "fieldname": "revised_month_9", "fieldtype": "Currency", "label": "修正後第9月"},
+  {"default": "0", "fieldname": "revised_month_10", "fieldtype": "Currency", "label": "修正後第10月"},
+  {"default": "0", "fieldname": "revised_month_11", "fieldtype": "Currency", "label": "修正後第11月"},
+  {"default": "0", "fieldname": "revised_month_12", "fieldtype": "Currency", "label": "修正後第12月"},
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "備考"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget Revision Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "states": []
+}

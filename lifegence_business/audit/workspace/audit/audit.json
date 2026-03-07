@@ -1,0 +1,126 @@
+{
+ "charts": [],
+ "content": null,
+ "creation": "2026-03-03 00:00:00",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "audit",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Audit",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "監査計画",
+   "link_count": 0,
+   "link_to": "Audit Plan",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "個別監査",
+   "link_count": 0,
+   "link_to": "Audit Engagement",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "チェックリスト",
+   "link_count": 0,
+   "link_to": "Audit Checklist",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "発見事項",
+   "link_count": 0,
+   "link_to": "Audit Finding",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "是正措置",
+   "link_count": 0,
+   "link_to": "Corrective Action",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "リスク台帳",
+   "link_count": 0,
+   "link_to": "Risk Register",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "リスクアセスメント",
+   "link_count": 0,
+   "link_to": "Risk Assessment",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "統制活動",
+   "link_count": 0,
+   "link_to": "Control Activity",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "監査設定",
+   "link_count": 0,
+   "link_to": "Audit Settings",
+   "link_type": "DocType",
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Audit",
+ "name": "Audit",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 31.0,
+ "shortcuts": [
+  {
+   "label": "監査計画",
+   "link_to": "Audit Plan",
+   "type": "DocType"
+  },
+  {
+   "label": "リスク台帳",
+   "link_to": "Risk Register",
+   "type": "DocType"
+  },
+  {
+   "label": "発見事項",
+   "link_to": "Audit Finding",
+   "type": "DocType"
+  }
+ ],
+ "title": "内部監査"
+}

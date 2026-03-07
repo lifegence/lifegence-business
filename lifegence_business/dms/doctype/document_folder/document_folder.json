@@ -1,0 +1,111 @@
+{
+	"actions": [],
+	"autoname": "field:folder_name",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"folder_name",
+		"parent_folder",
+		"column_break_basic",
+		"department",
+		"is_private",
+		"enabled",
+		"section_break_description",
+		"description"
+	],
+	"fields": [
+		{
+			"fieldname": "folder_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "フォルダ名",
+			"reqd": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "parent_folder",
+			"fieldtype": "Link",
+			"label": "親フォルダ",
+			"options": "Document Folder"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "department",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "部門",
+			"options": "Department"
+		},
+		{
+			"default": "0",
+			"fieldname": "is_private",
+			"fieldtype": "Check",
+			"label": "非公開"
+		},
+		{
+			"default": "1",
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "有効"
+		},
+		{
+			"fieldname": "section_break_description",
+			"fieldtype": "Section Break"
+		},
+		{
+			"fieldname": "description",
+			"fieldtype": "Small Text",
+			"label": "説明"
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "Document Folder",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS User",
+			"share": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

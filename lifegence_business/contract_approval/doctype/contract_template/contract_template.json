@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "autoname": "field:template_name",
+ "creation": "2026-02-09 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "contract_type",
+  "cb_template",
+  "is_active",
+  "content_section",
+  "template_content",
+  "default_terms"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Template Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contract Type",
+   "options": "業務委託契約\n売買契約\n賃貸借契約\n秘密保持契約\n雇用契約\nライセンス契約\nその他"
+  },
+  {
+   "fieldname": "cb_template",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active",
+   "default": "1"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Template Content"
+  },
+  {
+   "fieldname": "template_content",
+   "fieldtype": "Text Editor",
+   "label": "Template Content"
+  },
+  {
+   "fieldname": "default_terms",
+   "fieldtype": "Text Editor",
+   "label": "Default Terms and Conditions"
+  }
+ ],
+ "links": [],
+ "modified": "2026-02-09 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Contract Approval",
+ "name": "Contract Template",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

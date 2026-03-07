@@ -1,0 +1,125 @@
+{
+	"actions": [],
+	"autoname": "format:DAR-{folder}-{###}",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"folder",
+		"document",
+		"column_break_target",
+		"rule_type",
+		"access_level",
+		"enabled",
+		"section_break_assignee",
+		"user",
+		"role",
+		"department"
+	],
+	"fields": [
+		{
+			"fieldname": "folder",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "対象フォルダ",
+			"options": "Document Folder"
+		},
+		{
+			"fieldname": "document",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "対象文書",
+			"options": "Managed Document"
+		},
+		{
+			"fieldname": "column_break_target",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "rule_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "ルール種別",
+			"options": "User\nRole\nDepartment",
+			"reqd": 1
+		},
+		{
+			"default": "Read",
+			"fieldname": "access_level",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "アクセスレベル",
+			"options": "Read\nWrite\nFull",
+			"reqd": 1
+		},
+		{
+			"default": "1",
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "有効"
+		},
+		{
+			"depends_on": "rule_type",
+			"fieldname": "section_break_assignee",
+			"fieldtype": "Section Break",
+			"label": "対象者"
+		},
+		{
+			"depends_on": "eval:doc.rule_type=='User'",
+			"fieldname": "user",
+			"fieldtype": "Link",
+			"label": "ユーザー",
+			"options": "User"
+		},
+		{
+			"depends_on": "eval:doc.rule_type=='Role'",
+			"fieldname": "role",
+			"fieldtype": "Link",
+			"label": "ロール",
+			"options": "Role"
+		},
+		{
+			"depends_on": "eval:doc.rule_type=='Department'",
+			"fieldname": "department",
+			"fieldtype": "Link",
+			"label": "部門",
+			"options": "Department"
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "Document Access Rule",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

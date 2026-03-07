@@ -1,0 +1,14 @@
+[
+	{
+		"doctype": "Role",
+		"name": "DMS Manager",
+		"role_name": "DMS Manager",
+		"desk_access": 1
+	},
+	{
+		"doctype": "Role",
+		"name": "DMS User",
+		"role_name": "DMS User",
+		"desk_access": 1
+	}
+]

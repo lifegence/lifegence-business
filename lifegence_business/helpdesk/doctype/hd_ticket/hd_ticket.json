@@ -1,0 +1,316 @@
+{
+	"actions": [],
+	"autoname": "naming_series:",
+	"creation": "2026-03-02 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"naming_series",
+		"subject",
+		"ticket_type",
+		"column_break_basic",
+		"category",
+		"priority",
+		"status",
+		"section_break_contact",
+		"raised_by_name",
+		"raised_by_email",
+		"column_break_contact",
+		"raised_by_employee",
+		"company",
+		"section_break_description",
+		"description",
+		"section_break_resolution",
+		"resolution",
+		"section_break_assignment",
+		"assigned_to",
+		"column_break_assignment",
+		"assigned_team",
+		"section_break_sla",
+		"sla_policy",
+		"sla_status",
+		"column_break_sla",
+		"response_due",
+		"resolution_due",
+		"section_break_sla_tracking",
+		"first_responded_on",
+		"resolved_on",
+		"column_break_sla_tracking",
+		"sla_timers",
+		"section_break_comments",
+		"comments",
+		"section_break_satisfaction",
+		"satisfaction_rating",
+		"satisfaction_feedback"
+	],
+	"fields": [
+		{
+			"default": "HD-.#####",
+			"fieldname": "naming_series",
+			"fieldtype": "Select",
+			"hidden": 1,
+			"label": "Naming Series",
+			"options": "HD-.#####"
+		},
+		{
+			"fieldname": "subject",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "件名",
+			"reqd": 1
+		},
+		{
+			"default": "社内",
+			"fieldname": "ticket_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "チケット種別",
+			"options": "社内\n社外",
+			"reqd": 1
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "category",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "カテゴリ",
+			"options": "HD Category"
+		},
+		{
+			"default": "Medium",
+			"fieldname": "priority",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "優先度",
+			"options": "Low\nMedium\nHigh\nUrgent"
+		},
+		{
+			"default": "Open",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "ステータス",
+			"options": "Open\nIn Progress\nWaiting for Customer\nResolved\nClosed"
+		},
+		{
+			"fieldname": "section_break_contact",
+			"fieldtype": "Section Break",
+			"label": "問い合わせ者"
+		},
+		{
+			"fieldname": "raised_by_name",
+			"fieldtype": "Data",
+			"label": "問い合わせ者名",
+			"reqd": 1
+		},
+		{
+			"fieldname": "raised_by_email",
+			"fieldtype": "Data",
+			"label": "メールアドレス",
+			"options": "Email"
+		},
+		{
+			"fieldname": "column_break_contact",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "raised_by_employee",
+			"fieldtype": "Link",
+			"label": "従業員",
+			"options": "Employee"
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "会社",
+			"options": "Company"
+		},
+		{
+			"fieldname": "section_break_description",
+			"fieldtype": "Section Break",
+			"label": "問い合わせ内容"
+		},
+		{
+			"fieldname": "description",
+			"fieldtype": "Text Editor",
+			"label": "問い合わせ内容",
+			"reqd": 1
+		},
+		{
+			"collapsible": 1,
+			"fieldname": "section_break_resolution",
+			"fieldtype": "Section Break",
+			"label": "解決内容"
+		},
+		{
+			"fieldname": "resolution",
+			"fieldtype": "Text Editor",
+			"label": "解決内容"
+		},
+		{
+			"fieldname": "section_break_assignment",
+			"fieldtype": "Section Break",
+			"label": "担当"
+		},
+		{
+			"fieldname": "assigned_to",
+			"fieldtype": "Link",
+			"label": "担当者",
+			"options": "User"
+		},
+		{
+			"fieldname": "column_break_assignment",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "assigned_team",
+			"fieldtype": "Data",
+			"label": "担当チーム"
+		},
+		{
+			"fieldname": "section_break_sla",
+			"fieldtype": "Section Break",
+			"label": "SLA"
+		},
+		{
+			"fieldname": "sla_policy",
+			"fieldtype": "Link",
+			"label": "SLAポリシー",
+			"options": "HD SLA Policy",
+			"read_only": 1
+		},
+		{
+			"default": "On Track",
+			"fieldname": "sla_status",
+			"fieldtype": "Select",
+			"label": "SLAステータス",
+			"options": "On Track\nWarning\nBreached",
+			"read_only": 1
+		},
+		{
+			"fieldname": "column_break_sla",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "response_due",
+			"fieldtype": "Datetime",
+			"label": "応答期限",
+			"read_only": 1
+		},
+		{
+			"fieldname": "resolution_due",
+			"fieldtype": "Datetime",
+			"label": "解決期限",
+			"read_only": 1
+		},
+		{
+			"collapsible": 1,
+			"fieldname": "section_break_sla_tracking",
+			"fieldtype": "Section Break",
+			"label": "SLAトラッキング"
+		},
+		{
+			"fieldname": "first_responded_on",
+			"fieldtype": "Datetime",
+			"label": "初回応答日時",
+			"read_only": 1
+		},
+		{
+			"fieldname": "resolved_on",
+			"fieldtype": "Datetime",
+			"label": "解決日時",
+			"read_only": 1
+		},
+		{
+			"fieldname": "column_break_sla_tracking",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "sla_timers",
+			"fieldtype": "Table",
+			"label": "SLAタイマー",
+			"options": "HD SLA Timer",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_break_comments",
+			"fieldtype": "Section Break",
+			"label": "コメント"
+		},
+		{
+			"fieldname": "comments",
+			"fieldtype": "Table",
+			"label": "コメント",
+			"options": "HD Ticket Comment"
+		},
+		{
+			"collapsible": 1,
+			"fieldname": "section_break_satisfaction",
+			"fieldtype": "Section Break",
+			"label": "満足度"
+		},
+		{
+			"fieldname": "satisfaction_rating",
+			"fieldtype": "Select",
+			"label": "満足度評価",
+			"options": "\n1\n2\n3\n4\n5"
+		},
+		{
+			"fieldname": "satisfaction_feedback",
+			"fieldtype": "Small Text",
+			"label": "フィードバック"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-03-02 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Helpdesk",
+	"name": "HD Ticket",
+	"naming_rule": "By \"Naming Series\" field",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Support Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Support Agent",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

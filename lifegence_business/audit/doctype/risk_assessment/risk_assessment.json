@@ -1,0 +1,257 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "risk_register",
+  "assessment_date",
+  "assessor",
+  "assessment_type",
+  "score_section",
+  "likelihood_score",
+  "impact_score",
+  "column_break_score",
+  "risk_score",
+  "risk_level",
+  "rationale_section",
+  "likelihood_rationale",
+  "impact_rationale",
+  "overall_assessment",
+  "control_section",
+  "control_effectiveness",
+  "control_gaps",
+  "mitigation_section",
+  "mitigation_plan",
+  "mitigation_priority",
+  "column_break_mit",
+  "mitigation_owner",
+  "mitigation_due_date",
+  "review_section",
+  "next_review",
+  "review_frequency",
+  "trend_section",
+  "previous_risk_score",
+  "score_trend"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "RA-.#####",
+   "default": "RA-.#####"
+  },
+  {
+   "fieldname": "risk_register",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Risk Register",
+   "options": "Risk Register",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Assessment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessor",
+   "fieldtype": "Link",
+   "label": "Assessor",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "定期評価",
+   "fieldname": "assessment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Assessment Type",
+   "options": "定期評価\n臨時評価\n初回評価",
+   "reqd": 1
+  },
+  {
+   "fieldname": "score_section",
+   "fieldtype": "Section Break",
+   "label": "Assessment Score"
+  },
+  {
+   "fieldname": "likelihood_score",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Likelihood Score",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "impact_score",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Impact Score",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_score",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "risk_score",
+   "fieldtype": "Int",
+   "label": "Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "\nCritical\nHigh\nMedium\nLow",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rationale_section",
+   "fieldtype": "Section Break",
+   "label": "Rationale"
+  },
+  {
+   "fieldname": "likelihood_rationale",
+   "fieldtype": "Small Text",
+   "label": "Likelihood Rationale"
+  },
+  {
+   "fieldname": "impact_rationale",
+   "fieldtype": "Small Text",
+   "label": "Impact Rationale"
+  },
+  {
+   "fieldname": "overall_assessment",
+   "fieldtype": "Text Editor",
+   "label": "Overall Assessment"
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Control Evaluation"
+  },
+  {
+   "default": "未評価",
+   "fieldname": "control_effectiveness",
+   "fieldtype": "Select",
+   "label": "Control Effectiveness",
+   "options": "有効\n一部有効\n無効\n未評価"
+  },
+  {
+   "fieldname": "control_gaps",
+   "fieldtype": "Text Editor",
+   "label": "Control Gaps"
+  },
+  {
+   "fieldname": "mitigation_section",
+   "fieldtype": "Section Break",
+   "label": "Mitigation"
+  },
+  {
+   "fieldname": "mitigation_plan",
+   "fieldtype": "Text Editor",
+   "label": "Mitigation Plan"
+  },
+  {
+   "fieldname": "mitigation_priority",
+   "fieldtype": "Select",
+   "label": "Mitigation Priority",
+   "options": "\nUrgent\nHigh\nNormal\nLow"
+  },
+  {
+   "fieldname": "column_break_mit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mitigation_owner",
+   "fieldtype": "Link",
+   "label": "Mitigation Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "mitigation_due_date",
+   "fieldtype": "Date",
+   "label": "Mitigation Due Date"
+  },
+  {
+   "fieldname": "review_section",
+   "fieldtype": "Section Break",
+   "label": "Next Review"
+  },
+  {
+   "fieldname": "next_review",
+   "fieldtype": "Date",
+   "label": "Next Review"
+  },
+  {
+   "fieldname": "review_frequency",
+   "fieldtype": "Select",
+   "label": "Review Frequency",
+   "options": "\n四半期\n半期\n年次\n随時"
+  },
+  {
+   "fieldname": "trend_section",
+   "fieldtype": "Section Break",
+   "label": "Trend"
+  },
+  {
+   "fieldname": "previous_risk_score",
+   "fieldtype": "Int",
+   "label": "Previous Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "score_trend",
+   "fieldtype": "Select",
+   "label": "Score Trend",
+   "options": "\n上昇\n横ばい\n下降",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Audit",
+ "name": "Risk Assessment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Audit Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Risk Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Auditor"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

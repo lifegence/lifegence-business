@@ -1,0 +1,112 @@
+{
+	"actions": [],
+	"autoname": "naming_series:",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"naming_series",
+		"document",
+		"event_type",
+		"column_break_basic",
+		"content_hash",
+		"timestamp",
+		"section_break_verification",
+		"verified_by",
+		"verification_result"
+	],
+	"fields": [
+		{
+			"default": "EBP-.#####",
+			"fieldname": "naming_series",
+			"fieldtype": "Select",
+			"hidden": 1,
+			"label": "Naming Series",
+			"options": "EBP-.#####"
+		},
+		{
+			"fieldname": "document",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "文書",
+			"options": "Managed Document",
+			"reqd": 1
+		},
+		{
+			"fieldname": "event_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "イベント種別",
+			"options": "Created\nFinalized\nAccessed\nHashVerified",
+			"reqd": 1
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "content_hash",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "コンテンツハッシュ",
+			"read_only": 1
+		},
+		{
+			"fieldname": "timestamp",
+			"fieldtype": "Datetime",
+			"in_list_view": 1,
+			"label": "タイムスタンプ",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_break_verification",
+			"fieldtype": "Section Break",
+			"label": "検証"
+		},
+		{
+			"fieldname": "verified_by",
+			"fieldtype": "Link",
+			"label": "検証者",
+			"options": "User",
+			"read_only": 1
+		},
+		{
+			"fieldname": "verification_result",
+			"fieldtype": "Select",
+			"label": "検証結果",
+			"options": "\nValid\nTampered",
+			"read_only": 1
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "E-Book Preservation Log",
+	"naming_rule": "By \"Naming Series\" field",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1
+		},
+		{
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 0
+}

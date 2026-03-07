@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_settings_section",
+  "company",
+  "default_fiscal_year",
+  "column_break_basic",
+  "fiscal_year_start_month",
+  "budget_currency",
+  "amount_rounding",
+  "approval_workflow_section",
+  "approval_workflow_enabled",
+  "require_department_head_approval",
+  "require_cfo_approval",
+  "column_break_approval",
+  "revision_approval_required",
+  "max_revision_count",
+  "variance_section",
+  "variance_threshold_pct",
+  "variance_action",
+  "alert_recipients",
+  "column_break_variance",
+  "check_budget_on_purchase_order",
+  "check_budget_on_journal_entry",
+  "forecast_section",
+  "forecast_enabled",
+  "forecast_method",
+  "column_break_forecast",
+  "forecast_auto_update",
+  "forecast_update_day"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_settings_section",
+   "fieldtype": "Section Break",
+   "label": "基本設定"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "会社",
+   "options": "Company"
+  },
+  {
+   "fieldname": "default_fiscal_year",
+   "fieldtype": "Link",
+   "label": "デフォルト会計年度",
+   "options": "Fiscal Year"
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "4",
+   "fieldname": "fiscal_year_start_month",
+   "fieldtype": "Select",
+   "label": "会計年度開始月",
+   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
+   "reqd": 1
+  },
+  {
+   "default": "JPY",
+   "fieldname": "budget_currency",
+   "fieldtype": "Link",
+   "label": "予算通貨",
+   "options": "Currency"
+  },
+  {
+   "default": "千円",
+   "fieldname": "amount_rounding",
+   "fieldtype": "Select",
+   "label": "金額丸め単位",
+   "options": "円\n千円\n百万円"
+  },
+  {
+   "fieldname": "approval_workflow_section",
+   "fieldtype": "Section Break",
+   "label": "承認ワークフロー設定"
+  },
+  {
+   "default": "1",
+   "fieldname": "approval_workflow_enabled",
+   "fieldtype": "Check",
+   "label": "承認ワークフロー有効"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_department_head_approval",
+   "fieldtype": "Check",
+   "label": "部門長承認必須"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_cfo_approval",
+   "fieldtype": "Check",
+   "label": "CFO承認必須"
+  },
+  {
+   "fieldname": "column_break_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "revision_approval_required",
+   "fieldtype": "Check",
+   "label": "予算修正承認必須"
+  },
+  {
+   "default": "3",
+   "fieldname": "max_revision_count",
+   "fieldtype": "Int",
+   "label": "最大修正回数"
+  },
+  {
+   "fieldname": "variance_section",
+   "fieldtype": "Section Break",
+   "label": "差異管理設定"
+  },
+  {
+   "default": "10",
+   "fieldname": "variance_threshold_pct",
+   "fieldtype": "Percent",
+   "label": "差異アラート閾値(%)"
+  },
+  {
+   "default": "Warn",
+   "fieldname": "variance_action",
+   "fieldtype": "Select",
+   "label": "閾値超過時アクション",
+   "options": "Warn\nStop\nIgnore"
+  },
+  {
+   "fieldname": "alert_recipients",
+   "fieldtype": "Small Text",
+   "label": "アラート通知先"
+  },
+  {
+   "fieldname": "column_break_variance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "check_budget_on_purchase_order",
+   "fieldtype": "Check",
+   "label": "発注書作成時に予算チェック"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_budget_on_journal_entry",
+   "fieldtype": "Check",
+   "label": "仕訳帳登録時に予算チェック"
+  },
+  {
+   "fieldname": "forecast_section",
+   "fieldtype": "Section Break",
+   "label": "着地見込み設定"
+  },
+  {
+   "default": "1",
+   "fieldname": "forecast_enabled",
+   "fieldtype": "Check",
+   "label": "着地見込み機能有効"
+  },
+  {
+   "default": "Linear",
+   "fieldname": "forecast_method",
+   "fieldtype": "Select",
+   "label": "着地見込み計算方式",
+   "options": "Linear\nAverage\nTrend\nManual"
+  },
+  {
+   "fieldname": "column_break_forecast",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "forecast_auto_update",
+   "fieldtype": "Check",
+   "label": "着地見込み自動更新"
+  },
+  {
+   "default": "5",
+   "fieldname": "forecast_update_day",
+   "fieldtype": "Int",
+   "label": "月次更新実行日"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Budget Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "states": []
+}

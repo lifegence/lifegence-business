@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "signature_request",
+  "event_type",
+  "cb_log",
+  "event_date",
+  "provider_event_id",
+  "signer_section",
+  "signer_email",
+  "signer_name",
+  "cb_signer",
+  "ip_address",
+  "details_section",
+  "certificate_data",
+  "raw_payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ESL-.#####",
+   "default": "ESL-.#####",
+   "reqd": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "signature_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Signature Request",
+   "options": "E-Signature Request",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Event Type",
+   "options": "Sent\nViewed\nSigned\nDeclined\nExpired\nCancelled\nError",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_log",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "event_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Event Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider_event_id",
+   "fieldtype": "Data",
+   "label": "Provider Event ID"
+  },
+  {
+   "fieldname": "signer_section",
+   "fieldtype": "Section Break",
+   "label": "Signer"
+  },
+  {
+   "fieldname": "signer_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Signer Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "signer_name",
+   "fieldtype": "Data",
+   "label": "Signer Name"
+  },
+  {
+   "fieldname": "cb_signer",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "certificate_data",
+   "fieldtype": "Code",
+   "label": "Certificate Data"
+  },
+  {
+   "fieldname": "raw_payload",
+   "fieldtype": "Code",
+   "label": "Raw Payload"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Contract Approval",
+ "name": "E-Signature Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

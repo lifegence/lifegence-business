@@ -1,0 +1,14 @@
+[
+  {
+    "doctype": "Role",
+    "name": "Credit Manager",
+    "role_name": "Credit Manager",
+    "desk_access": 1
+  },
+  {
+    "doctype": "Role",
+    "name": "Credit Approver",
+    "role_name": "Credit Approver",
+    "desk_access": 1
+  }
+]

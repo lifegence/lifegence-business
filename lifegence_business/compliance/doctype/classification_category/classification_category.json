@@ -1,0 +1,76 @@
+{
+	"actions": [],
+	"autoname": "field:category_code",
+	"creation": "2025-01-27 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"category_code",
+		"category_name",
+		"category_name_en",
+		"layer",
+		"description"
+	],
+	"fields": [
+		{
+			"fieldname": "category_code",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "Category Code",
+			"reqd": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "category_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "Category Name",
+			"reqd": 1
+		},
+		{
+			"fieldname": "category_name_en",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "Category Name (EN)"
+		},
+		{
+			"fieldname": "layer",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Layer",
+			"options": "A\nB\nC",
+			"reqd": 1
+		},
+		{
+			"fieldname": "description",
+			"fieldtype": "Small Text",
+			"label": "Description"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2025-01-27 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Compliance",
+	"name": "Classification Category",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "category_code",
+	"sort_order": "ASC",
+	"title_field": "category_name"
+}

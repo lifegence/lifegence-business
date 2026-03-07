@@ -1,0 +1,234 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "budget_plan",
+  "revision_number",
+  "revision_date",
+  "column_break_basic",
+  "fiscal_year",
+  "department",
+  "cost_center",
+  "status",
+  "reason_section",
+  "revision_type",
+  "reason",
+  "impact_assessment",
+  "items_section",
+  "revised_items",
+  "total_original_amount",
+  "total_revised_amount",
+  "total_change_amount",
+  "approval_section",
+  "requested_by",
+  "column_break_approval2",
+  "approved_by",
+  "approved_date",
+  "rejection_reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "基本情報"
+  },
+  {
+   "default": "BR-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "BR-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "予算計画",
+   "options": "Budget Plan",
+   "reqd": 1
+  },
+  {
+   "fieldname": "revision_number",
+   "fieldtype": "Int",
+   "label": "修正番号",
+   "read_only": 1
+  },
+  {
+   "fieldname": "revision_date",
+   "fieldtype": "Date",
+   "label": "修正申請日",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "budget_plan.fiscal_year",
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "label": "会計年度",
+   "options": "Fiscal Year",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "budget_plan.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "部門",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "budget_plan.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "原価センター",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "ステータス",
+   "options": "Draft\nSubmitted\nApproved\nRejected\nCancelled"
+  },
+  {
+   "fieldname": "reason_section",
+   "fieldtype": "Section Break",
+   "label": "修正理由"
+  },
+  {
+   "fieldname": "revision_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "修正種別",
+   "options": "Increase\nDecrease\nTransfer\nRestructure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Text Editor",
+   "label": "修正理由",
+   "reqd": 1
+  },
+  {
+   "fieldname": "impact_assessment",
+   "fieldtype": "Small Text",
+   "label": "修正影響"
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "修正明細"
+  },
+  {
+   "fieldname": "revised_items",
+   "fieldtype": "Table",
+   "label": "修正明細",
+   "options": "Budget Revision Item",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_original_amount",
+   "fieldtype": "Currency",
+   "label": "修正前合計金額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_revised_amount",
+   "fieldtype": "Currency",
+   "label": "修正後合計金額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_change_amount",
+   "fieldtype": "Currency",
+   "label": "増減合計金額",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "承認情報"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "申請者",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_approval2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "承認者",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_date",
+   "fieldtype": "Date",
+   "label": "承認日",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "却下理由"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget Revision",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Budget Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,38 @@
+[
+	{
+		"doctype": "HD Category",
+		"name": "IT",
+		"category_name": "IT",
+		"description": "IT関連の問い合わせ",
+		"default_priority": "Medium",
+		"is_external": 0,
+		"enabled": 1
+	},
+	{
+		"doctype": "HD Category",
+		"name": "HR",
+		"category_name": "HR",
+		"description": "人事・労務の問い合わせ",
+		"default_priority": "Medium",
+		"is_external": 0,
+		"enabled": 1
+	},
+	{
+		"doctype": "HD Category",
+		"name": "経理",
+		"category_name": "経理",
+		"description": "経理・会計の問い合わせ",
+		"default_priority": "Medium",
+		"is_external": 0,
+		"enabled": 1
+	},
+	{
+		"doctype": "HD Category",
+		"name": "顧客サポート",
+		"category_name": "顧客サポート",
+		"description": "顧客からの問い合わせ",
+		"default_priority": "Medium",
+		"is_external": 1,
+		"enabled": 1
+	}
+]

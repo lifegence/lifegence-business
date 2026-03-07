@@ -1,0 +1,116 @@
+{
+	"charts": [],
+	"content": "[{\"id\":\"shortcut-hd-ticket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HD Ticket\",\"col\":4}},{\"id\":\"shortcut-hd-category\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HD Category\",\"col\":4}},{\"id\":\"shortcut-hd-knowledge-base\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"HD Knowledge Base\",\"col\":4}}]",
+	"creation": "2026-03-02 00:00:00.000000",
+	"custom_blocks": [],
+	"doctype": "Workspace",
+	"for_user": "",
+	"hide_custom": 0,
+	"icon": "support",
+	"idx": 0,
+	"is_hidden": 0,
+	"label": "Helpdesk",
+	"links": [
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "チケット管理",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "HD Ticket",
+			"link_count": 0,
+			"link_to": "HD Ticket",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "HD Category",
+			"link_count": 0,
+			"link_to": "HD Category",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "ナレッジベース",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "HD Knowledge Base",
+			"link_count": 0,
+			"link_to": "HD Knowledge Base",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "設定",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "HD SLA Policy",
+			"link_count": 0,
+			"link_to": "HD SLA Policy",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		}
+	],
+	"modified": "2026-03-02 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Helpdesk",
+	"name": "Helpdesk",
+	"owner": "Administrator",
+	"parent_page": "",
+	"public": 1,
+	"restrict_to_domain": "",
+	"roles": [],
+	"sequence_id": 30.0,
+	"shortcuts": [
+		{
+			"color": "Blue",
+			"doc_view": "List",
+			"label": "HD Ticket",
+			"link_to": "HD Ticket",
+			"type": "DocType"
+		},
+		{
+			"color": "Green",
+			"doc_view": "List",
+			"label": "HD Category",
+			"link_to": "HD Category",
+			"type": "DocType"
+		},
+		{
+			"color": "Orange",
+			"doc_view": "List",
+			"label": "HD Knowledge Base",
+			"link_to": "HD Knowledge Base",
+			"type": "DocType"
+		}
+	],
+	"title": "ヘルプデスク"
+}

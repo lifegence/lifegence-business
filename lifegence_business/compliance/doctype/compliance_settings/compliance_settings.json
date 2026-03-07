@@ -1,0 +1,184 @@
+{
+	"actions": [],
+	"creation": "2025-01-27 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"gemini_section",
+		"gemini_api_key",
+		"embedding_model",
+		"classification_model",
+		"column_break_gemini",
+		"embedding_dimension",
+		"qdrant_section",
+		"qdrant_host",
+		"qdrant_port",
+		"qdrant_api_key",
+		"column_break_qdrant",
+		"qdrant_collection_name",
+		"qdrant_use_https",
+		"processing_section",
+		"chunk_size",
+		"chunk_overlap",
+		"batch_size",
+		"search_section",
+		"vector_weight",
+		"fulltext_weight",
+		"default_search_limit",
+		"data_section",
+		"reports_base_path"
+	],
+	"fields": [
+		{
+			"fieldname": "gemini_section",
+			"fieldtype": "Section Break",
+			"label": "Gemini AI Settings"
+		},
+		{
+			"fieldname": "gemini_api_key",
+			"fieldtype": "Password",
+			"label": "Gemini API Key"
+		},
+		{
+			"fieldname": "embedding_model",
+			"fieldtype": "Data",
+			"default": "text-embedding-004",
+			"label": "Embedding Model"
+		},
+		{
+			"fieldname": "classification_model",
+			"fieldtype": "Data",
+			"default": "gemini-2.0-flash",
+			"label": "Classification Model"
+		},
+		{
+			"fieldname": "column_break_gemini",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "embedding_dimension",
+			"fieldtype": "Int",
+			"default": "768",
+			"label": "Embedding Dimension"
+		},
+		{
+			"fieldname": "qdrant_section",
+			"fieldtype": "Section Break",
+			"label": "Qdrant Settings"
+		},
+		{
+			"fieldname": "qdrant_host",
+			"fieldtype": "Data",
+			"default": "localhost",
+			"label": "Qdrant Host"
+		},
+		{
+			"fieldname": "qdrant_port",
+			"fieldtype": "Int",
+			"default": "6333",
+			"label": "Qdrant Port"
+		},
+		{
+			"fieldname": "qdrant_api_key",
+			"fieldtype": "Password",
+			"label": "Qdrant API Key"
+		},
+		{
+			"fieldname": "column_break_qdrant",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "qdrant_collection_name",
+			"fieldtype": "Data",
+			"default": "committee_reports",
+			"label": "Collection Name"
+		},
+		{
+			"fieldname": "qdrant_use_https",
+			"fieldtype": "Check",
+			"default": "0",
+			"label": "Use HTTPS"
+		},
+		{
+			"fieldname": "processing_section",
+			"fieldtype": "Section Break",
+			"label": "Processing Settings"
+		},
+		{
+			"fieldname": "chunk_size",
+			"fieldtype": "Int",
+			"default": "1000",
+			"label": "Chunk Size (chars)"
+		},
+		{
+			"fieldname": "chunk_overlap",
+			"fieldtype": "Int",
+			"default": "200",
+			"label": "Chunk Overlap (chars)"
+		},
+		{
+			"fieldname": "batch_size",
+			"fieldtype": "Int",
+			"default": "50",
+			"label": "Batch Size"
+		},
+		{
+			"fieldname": "search_section",
+			"fieldtype": "Section Break",
+			"label": "Search Settings"
+		},
+		{
+			"fieldname": "vector_weight",
+			"fieldtype": "Float",
+			"default": "0.7",
+			"label": "Vector Weight",
+			"precision": "2"
+		},
+		{
+			"fieldname": "fulltext_weight",
+			"fieldtype": "Float",
+			"default": "0.3",
+			"label": "Full-text Weight",
+			"precision": "2"
+		},
+		{
+			"fieldname": "default_search_limit",
+			"fieldtype": "Int",
+			"default": "10",
+			"label": "Default Search Limit"
+		},
+		{
+			"fieldname": "data_section",
+			"fieldtype": "Section Break",
+			"label": "Data Settings"
+		},
+		{
+			"fieldname": "reports_base_path",
+			"fieldtype": "Data",
+			"default": "/home/masakazu-nomura/work/get_committee_reports/downloaded_reports",
+			"label": "Reports Base Path"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"issingle": 1,
+	"links": [],
+	"modified": "2025-01-27 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Compliance",
+	"name": "Compliance Settings",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"print": 1,
+			"read": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "ASC"
+}

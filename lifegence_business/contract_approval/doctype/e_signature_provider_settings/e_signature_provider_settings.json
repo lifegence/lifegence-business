@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "autoname": "field:provider_name",
+ "creation": "2026-03-03 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "provider_name",
+  "provider_type",
+  "cb_provider",
+  "enabled",
+  "sandbox_mode",
+  "api_section",
+  "api_key",
+  "api_secret",
+  "cb_api",
+  "api_endpoint",
+  "account_id",
+  "webhook_section",
+  "webhook_secret",
+  "cb_webhook",
+  "default_expiry_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "provider_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Provider Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "provider_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Provider Type",
+   "options": "CloudSign\nDocuSign\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_provider",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "default": "1",
+   "fieldname": "sandbox_mode",
+   "fieldtype": "Check",
+   "label": "Sandbox Mode"
+  },
+  {
+   "fieldname": "api_section",
+   "fieldtype": "Section Break",
+   "label": "API Settings"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "API Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "description": "Required for DocuSign",
+   "label": "API Secret"
+  },
+  {
+   "fieldname": "cb_api",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_endpoint",
+   "fieldtype": "Data",
+   "label": "API Endpoint",
+   "reqd": 1
+  },
+  {
+   "description": "Required for DocuSign",
+   "fieldname": "account_id",
+   "fieldtype": "Data",
+   "label": "Account ID"
+  },
+  {
+   "fieldname": "webhook_section",
+   "fieldtype": "Section Break",
+   "label": "Webhook & Defaults"
+  },
+  {
+   "fieldname": "webhook_secret",
+   "fieldtype": "Password",
+   "label": "Webhook Secret"
+  },
+  {
+   "fieldname": "cb_webhook",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "30",
+   "fieldname": "default_expiry_days",
+   "fieldtype": "Int",
+   "label": "Default Expiry Days"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Contract Approval",
+ "name": "E-Signature Provider Settings",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

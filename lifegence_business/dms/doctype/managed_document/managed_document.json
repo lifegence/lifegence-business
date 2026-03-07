@@ -1,0 +1,238 @@
+{
+	"actions": [],
+	"autoname": "naming_series:",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"naming_series",
+		"document_name",
+		"document_type",
+		"column_break_basic",
+		"folder",
+		"status",
+		"company",
+		"section_break_file",
+		"file",
+		"column_break_file",
+		"file_type",
+		"file_size",
+		"section_break_classification",
+		"tags",
+		"column_break_classification",
+		"description",
+		"section_break_version",
+		"current_version",
+		"is_finalized",
+		"versions",
+		"section_break_retention",
+		"retention_policy",
+		"column_break_retention",
+		"retention_until",
+		"section_break_ebook",
+		"content_hash"
+	],
+	"fields": [
+		{
+			"default": "DOC-.#####",
+			"fieldname": "naming_series",
+			"fieldtype": "Select",
+			"hidden": 1,
+			"label": "Naming Series",
+			"options": "DOC-.#####"
+		},
+		{
+			"fieldname": "document_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "文書名",
+			"reqd": 1
+		},
+		{
+			"default": "その他",
+			"fieldname": "document_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "文書種別",
+			"options": "規程\nマニュアル\n契約書\n申請書\n議事録\n報告書\nその他"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "folder",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "フォルダ",
+			"options": "Document Folder"
+		},
+		{
+			"default": "Draft",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "ステータス",
+			"options": "Draft\nActive\nUnder Review\nArchived"
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "会社",
+			"options": "Company"
+		},
+		{
+			"fieldname": "section_break_file",
+			"fieldtype": "Section Break",
+			"label": "ファイル"
+		},
+		{
+			"fieldname": "file",
+			"fieldtype": "Attach",
+			"label": "ファイル",
+			"reqd": 1
+		},
+		{
+			"fieldname": "column_break_file",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "file_type",
+			"fieldtype": "Data",
+			"label": "ファイル種別",
+			"read_only": 1
+		},
+		{
+			"fieldname": "file_size",
+			"fieldtype": "Int",
+			"label": "ファイルサイズ",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_break_classification",
+			"fieldtype": "Section Break",
+			"label": "分類"
+		},
+		{
+			"fieldname": "tags",
+			"fieldtype": "Small Text",
+			"label": "タグ",
+			"description": "カンマ区切りで入力"
+		},
+		{
+			"fieldname": "column_break_classification",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "description",
+			"fieldtype": "Small Text",
+			"label": "文書概要"
+		},
+		{
+			"fieldname": "section_break_version",
+			"fieldtype": "Section Break",
+			"label": "バージョン管理"
+		},
+		{
+			"default": "1",
+			"fieldname": "current_version",
+			"fieldtype": "Int",
+			"label": "現在のバージョン",
+			"read_only": 1
+		},
+		{
+			"default": "0",
+			"fieldname": "is_finalized",
+			"fieldtype": "Check",
+			"label": "確定済み"
+		},
+		{
+			"fieldname": "versions",
+			"fieldtype": "Table",
+			"label": "バージョン履歴",
+			"options": "Document Version"
+		},
+		{
+			"fieldname": "section_break_retention",
+			"fieldtype": "Section Break",
+			"label": "保存ポリシー"
+		},
+		{
+			"fieldname": "retention_policy",
+			"fieldtype": "Link",
+			"label": "保存ポリシー",
+			"options": "Retention Policy"
+		},
+		{
+			"fieldname": "column_break_retention",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "retention_until",
+			"fieldtype": "Date",
+			"label": "保存期限",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_break_ebook",
+			"fieldtype": "Section Break",
+			"label": "電子帳簿保存法",
+			"collapsible": 1
+		},
+		{
+			"fieldname": "content_hash",
+			"fieldtype": "Data",
+			"hidden": 1,
+			"label": "コンテンツハッシュ",
+			"read_only": 1
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "Managed Document",
+	"naming_rule": "By \"Naming Series\" field",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS User",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

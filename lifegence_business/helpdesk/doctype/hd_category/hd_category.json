@@ -1,0 +1,103 @@
+{
+	"actions": [],
+	"autoname": "field:category_name",
+	"creation": "2026-03-02 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"category_name",
+		"description",
+		"column_break_basic",
+		"default_assigned_to",
+		"default_priority",
+		"section_break_settings",
+		"is_external",
+		"enabled"
+	],
+	"fields": [
+		{
+			"fieldname": "category_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "カテゴリ名",
+			"reqd": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "description",
+			"fieldtype": "Small Text",
+			"label": "説明"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "default_assigned_to",
+			"fieldtype": "Link",
+			"label": "デフォルト担当者",
+			"options": "User"
+		},
+		{
+			"default": "Medium",
+			"fieldname": "default_priority",
+			"fieldtype": "Select",
+			"label": "デフォルト優先度",
+			"options": "Low\nMedium\nHigh\nUrgent"
+		},
+		{
+			"fieldname": "section_break_settings",
+			"fieldtype": "Section Break",
+			"label": "設定"
+		},
+		{
+			"default": "0",
+			"fieldname": "is_external",
+			"fieldtype": "Check",
+			"label": "社外チケット用"
+		},
+		{
+			"default": "1",
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "有効"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-03-02 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Helpdesk",
+	"name": "HD Category",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Support Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "ASC",
+	"states": [],
+	"track_changes": 1
+}

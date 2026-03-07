@@ -1,0 +1,248 @@
+{
+  "actions": [],
+  "autoname": "format:{customer}-{company}",
+  "creation": "2026-03-03 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "customer",
+    "customer_name",
+    "column_break_basic",
+    "company",
+    "credit_section",
+    "credit_limit_amount",
+    "used_amount",
+    "column_break_credit",
+    "available_amount",
+    "usage_percentage",
+    "status_section",
+    "status",
+    "column_break_status",
+    "suspension_reason",
+    "validity_section",
+    "valid_from",
+    "column_break_validity",
+    "valid_until",
+    "review_section",
+    "last_review_date",
+    "next_review_date",
+    "column_break_review",
+    "review_cycle_months",
+    "assessment_section",
+    "latest_assessment",
+    "column_break_assessment",
+    "risk_grade"
+  ],
+  "fields": [
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "取引先",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fetch_from": "customer.customer_name",
+      "fieldname": "customer_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "取引先名",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "会社",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "credit_section",
+      "fieldtype": "Section Break",
+      "label": "与信枠"
+    },
+    {
+      "fieldname": "credit_limit_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "与信限度額",
+      "reqd": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "used_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "使用額",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_credit",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "available_amount",
+      "fieldtype": "Currency",
+      "label": "利用可能額",
+      "read_only": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "usage_percentage",
+      "fieldtype": "Percent",
+      "label": "使用率",
+      "read_only": 1
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "ステータス"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "ステータス",
+      "options": "Active\nSuspended\nUnder Review"
+    },
+    {
+      "fieldname": "column_break_status",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "suspension_reason",
+      "fieldtype": "Small Text",
+      "label": "停止理由",
+      "depends_on": "eval:doc.status=='Suspended'"
+    },
+    {
+      "fieldname": "validity_section",
+      "fieldtype": "Section Break",
+      "label": "有効期間"
+    },
+    {
+      "default": "Today",
+      "fieldname": "valid_from",
+      "fieldtype": "Date",
+      "label": "有効開始日",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_validity",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "valid_until",
+      "fieldtype": "Date",
+      "label": "有効終了日"
+    },
+    {
+      "fieldname": "review_section",
+      "fieldtype": "Section Break",
+      "label": "見直し管理"
+    },
+    {
+      "fieldname": "last_review_date",
+      "fieldtype": "Date",
+      "label": "前回見直し日"
+    },
+    {
+      "fieldname": "next_review_date",
+      "fieldtype": "Date",
+      "label": "次回見直し予定日"
+    },
+    {
+      "fieldname": "column_break_review",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "review_cycle_months",
+      "fieldtype": "Int",
+      "label": "見直しサイクル（月数）"
+    },
+    {
+      "fieldname": "assessment_section",
+      "fieldtype": "Section Break",
+      "label": "関連審査"
+    },
+    {
+      "fieldname": "latest_assessment",
+      "fieldtype": "Link",
+      "label": "最新審査",
+      "options": "Credit Assessment",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_assessment",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "risk_grade",
+      "fieldtype": "Data",
+      "label": "リスクグレード",
+      "read_only": 1
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 0,
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Credit Limit",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Approver",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Sales User"
+    }
+  ],
+  "sort_field": "customer_name",
+  "sort_order": "ASC",
+  "states": [],
+  "track_changes": 1
+}

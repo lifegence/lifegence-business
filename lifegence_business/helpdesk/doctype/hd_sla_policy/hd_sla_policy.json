@@ -1,0 +1,196 @@
+{
+	"actions": [],
+	"autoname": "field:policy_name",
+	"creation": "2026-03-02 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"policy_name",
+		"company",
+		"column_break_basic",
+		"is_default",
+		"enabled",
+		"section_break_low",
+		"low_response_time",
+		"low_resolution_time",
+		"column_break_medium",
+		"medium_response_time",
+		"medium_resolution_time",
+		"section_break_high",
+		"high_response_time",
+		"high_resolution_time",
+		"column_break_urgent",
+		"urgent_response_time",
+		"urgent_resolution_time",
+		"section_break_business_hours",
+		"holiday_list",
+		"column_break_hours",
+		"business_hours_start",
+		"business_hours_end"
+	],
+	"fields": [
+		{
+			"fieldname": "policy_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "ポリシー名",
+			"reqd": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "会社",
+			"options": "Company"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "0",
+			"fieldname": "is_default",
+			"fieldtype": "Check",
+			"label": "デフォルト"
+		},
+		{
+			"default": "1",
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "有効"
+		},
+		{
+			"fieldname": "section_break_low",
+			"fieldtype": "Section Break",
+			"label": "優先度別SLA時間（時間単位）"
+		},
+		{
+			"default": "24",
+			"description": "Low優先度の応答時間（時間）",
+			"fieldname": "low_response_time",
+			"fieldtype": "Float",
+			"label": "Low - 応答時間"
+		},
+		{
+			"default": "72",
+			"description": "Low優先度の解決時間（時間）",
+			"fieldname": "low_resolution_time",
+			"fieldtype": "Float",
+			"label": "Low - 解決時間"
+		},
+		{
+			"fieldname": "column_break_medium",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "8",
+			"description": "Medium優先度の応答時間（時間）",
+			"fieldname": "medium_response_time",
+			"fieldtype": "Float",
+			"label": "Medium - 応答時間"
+		},
+		{
+			"default": "24",
+			"description": "Medium優先度の解決時間（時間）",
+			"fieldname": "medium_resolution_time",
+			"fieldtype": "Float",
+			"label": "Medium - 解決時間"
+		},
+		{
+			"fieldname": "section_break_high",
+			"fieldtype": "Section Break"
+		},
+		{
+			"default": "4",
+			"description": "High優先度の応答時間（時間）",
+			"fieldname": "high_response_time",
+			"fieldtype": "Float",
+			"label": "High - 応答時間"
+		},
+		{
+			"default": "8",
+			"description": "High優先度の解決時間（時間）",
+			"fieldname": "high_resolution_time",
+			"fieldtype": "Float",
+			"label": "High - 解決時間"
+		},
+		{
+			"fieldname": "column_break_urgent",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "1",
+			"description": "Urgent優先度の応答時間（時間）",
+			"fieldname": "urgent_response_time",
+			"fieldtype": "Float",
+			"label": "Urgent - 応答時間"
+		},
+		{
+			"default": "4",
+			"description": "Urgent優先度の解決時間（時間）",
+			"fieldname": "urgent_resolution_time",
+			"fieldtype": "Float",
+			"label": "Urgent - 解決時間"
+		},
+		{
+			"fieldname": "section_break_business_hours",
+			"fieldtype": "Section Break",
+			"label": "営業時間"
+		},
+		{
+			"fieldname": "holiday_list",
+			"fieldtype": "Link",
+			"label": "休日リスト",
+			"options": "Holiday List"
+		},
+		{
+			"fieldname": "column_break_hours",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "09:00:00",
+			"fieldname": "business_hours_start",
+			"fieldtype": "Time",
+			"label": "営業開始時間"
+		},
+		{
+			"default": "18:00:00",
+			"fieldname": "business_hours_end",
+			"fieldtype": "Time",
+			"label": "営業終了時間"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-03-02 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Helpdesk",
+	"name": "HD SLA Policy",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Support Manager"
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "ASC",
+	"states": [],
+	"track_changes": 1
+}

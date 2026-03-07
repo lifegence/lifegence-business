@@ -1,0 +1,9 @@
+.DS_Store
+*.pyc
+*.egg-info
+__pycache__
+*.swp
+dist
+build
+*.egg
+*.eggs

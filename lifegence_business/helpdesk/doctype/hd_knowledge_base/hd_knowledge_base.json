@@ -1,0 +1,162 @@
+{
+	"actions": [],
+	"autoname": "naming_series:",
+	"creation": "2026-03-02 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"naming_series",
+		"title",
+		"category",
+		"column_break_basic",
+		"status",
+		"visibility",
+		"author",
+		"section_break_content",
+		"content",
+		"section_break_meta",
+		"tags",
+		"column_break_stats",
+		"helpful_count",
+		"view_count"
+	],
+	"fields": [
+		{
+			"default": "KB-.#####",
+			"fieldname": "naming_series",
+			"fieldtype": "Select",
+			"hidden": 1,
+			"label": "Naming Series",
+			"options": "KB-.#####"
+		},
+		{
+			"fieldname": "title",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "タイトル",
+			"reqd": 1
+		},
+		{
+			"fieldname": "category",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "カテゴリ",
+			"options": "HD Category"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "Draft",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "ステータス",
+			"options": "Draft\nPublished\nArchived"
+		},
+		{
+			"default": "内部のみ",
+			"fieldname": "visibility",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "公開範囲",
+			"options": "内部のみ\n外部公開\n両方"
+		},
+		{
+			"fieldname": "author",
+			"fieldtype": "Link",
+			"label": "著者",
+			"options": "User",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_break_content",
+			"fieldtype": "Section Break",
+			"label": "記事内容"
+		},
+		{
+			"fieldname": "content",
+			"fieldtype": "Text Editor",
+			"label": "内容",
+			"reqd": 1
+		},
+		{
+			"fieldname": "section_break_meta",
+			"fieldtype": "Section Break",
+			"label": "メタ情報"
+		},
+		{
+			"fieldname": "tags",
+			"fieldtype": "Small Text",
+			"label": "タグ"
+		},
+		{
+			"fieldname": "column_break_stats",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "0",
+			"fieldname": "helpful_count",
+			"fieldtype": "Int",
+			"label": "参考になった数",
+			"read_only": 1
+		},
+		{
+			"default": "0",
+			"fieldname": "view_count",
+			"fieldtype": "Int",
+			"label": "閲覧数",
+			"read_only": 1
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2026-03-02 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Helpdesk",
+	"name": "HD Knowledge Base",
+	"naming_rule": "By \"Naming Series\" field",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Support Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "Support Agent",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "contract",
+  "provider",
+  "cb_request",
+  "status",
+  "requested_by",
+  "signers_section",
+  "signers",
+  "provider_section",
+  "envelope_id",
+  "callback_url",
+  "cb_provider_info",
+  "sent_date",
+  "completed_date",
+  "expiry_date",
+  "result_section",
+  "signed_document",
+  "cb_result",
+  "dms_document",
+  "error_section",
+  "error_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ESIG-.YYYY.-",
+   "default": "ESIG-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contract",
+   "options": "Contract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Provider",
+   "options": "E-Signature Provider Settings",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_request",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nSent\nPartially Signed\nCompleted\nExpired\nCancelled"
+  },
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "label": "Requested By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "signers_section",
+   "fieldtype": "Section Break",
+   "label": "Signers"
+  },
+  {
+   "description": "JSON array: [{\"name\": \"...\", \"email\": \"...\", \"order\": 1, \"signed\": false}]",
+   "fieldname": "signers",
+   "fieldtype": "Small Text",
+   "label": "Signers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "provider_section",
+   "fieldtype": "Section Break",
+   "label": "Provider Integration"
+  },
+  {
+   "fieldname": "envelope_id",
+   "fieldtype": "Data",
+   "label": "Envelope ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "callback_url",
+   "fieldtype": "Data",
+   "label": "Callback URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_provider_info",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sent_date",
+   "fieldtype": "Datetime",
+   "label": "Sent Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_date",
+   "fieldtype": "Datetime",
+   "label": "Completed Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "result_section",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "signed_document",
+   "fieldtype": "Attach",
+   "label": "Signed Document",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_result",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dms_document",
+   "fieldtype": "Link",
+   "label": "DMS Document",
+   "options": "Managed Document",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_section",
+   "fieldtype": "Section Break",
+   "label": "Error"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Contract Approval",
+ "name": "E-Signature Request",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "All",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

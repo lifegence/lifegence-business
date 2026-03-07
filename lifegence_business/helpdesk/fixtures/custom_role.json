@@ -1,0 +1,14 @@
+[
+	{
+		"doctype": "Role",
+		"name": "Support Manager",
+		"role_name": "Support Manager",
+		"desk_access": 1
+	},
+	{
+		"doctype": "Role",
+		"name": "Support Agent",
+		"role_name": "Support Agent",
+		"desk_access": 1
+	}
+]

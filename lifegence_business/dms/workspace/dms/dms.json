@@ -1,0 +1,175 @@
+{
+	"charts": [],
+	"content": "[{\"id\":\"shortcut-managed-document\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Managed Document\",\"col\":4}},{\"id\":\"shortcut-document-folder\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Document Folder\",\"col\":4}},{\"id\":\"shortcut-document-review\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Document Review\",\"col\":4}}]",
+	"creation": "2026-03-03 00:00:00.000000",
+	"custom_blocks": [],
+	"doctype": "Workspace",
+	"for_user": "",
+	"hide_custom": 0,
+	"icon": "folder-normal",
+	"idx": 0,
+	"is_hidden": 0,
+	"label": "DMS",
+	"links": [
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "文書管理",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Managed Document",
+			"link_count": 0,
+			"link_to": "Managed Document",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Document Folder",
+			"link_count": 0,
+			"link_to": "Document Folder",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Document Template",
+			"link_count": 0,
+			"link_to": "Document Template",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "レビュー・承認",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Document Review",
+			"link_count": 0,
+			"link_to": "Document Review",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "アクセス管理",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Document Access Rule",
+			"link_count": 0,
+			"link_to": "Document Access Rule",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Document Access Log",
+			"link_count": 0,
+			"link_to": "Document Access Log",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "設定",
+			"link_count": 0,
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Card Break"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "DMS Settings",
+			"link_count": 0,
+			"link_to": "DMS Settings",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Retention Policy",
+			"link_count": 0,
+			"link_to": "Retention Policy",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "E-Book Preservation Log",
+			"link_count": 0,
+			"link_to": "E-Book Preservation Log",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		}
+	],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "DMS",
+	"owner": "Administrator",
+	"parent_page": "",
+	"public": 1,
+	"restrict_to_domain": "",
+	"roles": [],
+	"sequence_id": 31.0,
+	"shortcuts": [
+		{
+			"color": "Blue",
+			"doc_view": "List",
+			"label": "Managed Document",
+			"link_to": "Managed Document",
+			"type": "DocType"
+		},
+		{
+			"color": "Green",
+			"doc_view": "List",
+			"label": "Document Folder",
+			"link_to": "Document Folder",
+			"type": "DocType"
+		},
+		{
+			"color": "Orange",
+			"doc_view": "List",
+			"label": "Document Review",
+			"link_to": "Document Review",
+			"type": "DocType"
+		}
+	],
+	"title": "文書管理"
+}

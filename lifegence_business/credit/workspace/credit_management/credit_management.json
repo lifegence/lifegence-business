@@ -1,0 +1,143 @@
+{
+  "charts": [],
+  "content": "[]",
+  "creation": "2026-03-03 00:00:00.000000",
+  "custom_blocks": [],
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "credit-card",
+  "idx": 0,
+  "is_hidden": 0,
+  "label": "Credit Management",
+  "links": [
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "与信審査",
+      "link_count": 0,
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Credit Assessment",
+      "link_count": 0,
+      "link_to": "Credit Assessment",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Credit Limit",
+      "link_count": 0,
+      "link_to": "Credit Limit",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Credit Limit History",
+      "link_count": 0,
+      "link_to": "Credit Limit History",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "反社チェック・アラート",
+      "link_count": 0,
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Anti-Social Check",
+      "link_count": 0,
+      "link_to": "Anti-Social Check",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Credit Alert",
+      "link_count": 0,
+      "link_to": "Credit Alert",
+      "link_type": "DocType",
+      "onboard": 1,
+      "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "設定",
+      "link_count": 0,
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Credit Settings",
+      "link_count": 0,
+      "link_to": "Credit Settings",
+      "link_type": "DocType",
+      "onboard": 0,
+      "type": "Link"
+    }
+  ],
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Credit Management",
+  "owner": "Administrator",
+  "parent_page": "",
+  "public": 1,
+  "restrict_to_domain": "",
+  "roles": [],
+  "sequence_id": 32.0,
+  "title": "与信管理",
+  "shortcuts": [
+    {
+      "color": "Blue",
+      "doc_view": "List",
+      "label": "Credit Assessment",
+      "link_to": "Credit Assessment",
+      "type": "DocType"
+    },
+    {
+      "color": "Green",
+      "doc_view": "List",
+      "label": "Credit Limit",
+      "link_to": "Credit Limit",
+      "type": "DocType"
+    },
+    {
+      "color": "Orange",
+      "doc_view": "List",
+      "label": "Anti-Social Check",
+      "link_to": "Anti-Social Check",
+      "type": "DocType"
+    },
+    {
+      "color": "Red",
+      "doc_view": "List",
+      "label": "Credit Alert",
+      "link_to": "Credit Alert",
+      "type": "DocType"
+    }
+  ]
+}

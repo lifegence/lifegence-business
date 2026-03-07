@@ -1,0 +1,72 @@
+{
+ "app": "lifegence_compliance",
+ "creation": "2026-02-04 23:17:35.118277",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "shield-check",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Home",
+   "link_to": "Compliance",
+   "link_type": "Workspace",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "RAG Search",
+   "link_to": "compliance-dashboard",
+   "link_type": "Page",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Committee Report",
+   "link_to": "Committee Report",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Classification Category",
+   "link_to": "Classification Category",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Compliance Settings",
+   "link_to": "Compliance Settings",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-02-05 00:08:29.604201",
+ "modified_by": "Administrator",
+ "module": "Compliance",
+ "name": "Compliance",
+ "owner": "Administrator",
+ "standard": 0,
+ "title": "Compliance"
+}

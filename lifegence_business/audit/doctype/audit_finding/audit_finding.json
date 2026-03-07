@@ -1,0 +1,249 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "finding_title",
+  "audit_engagement",
+  "finding_date",
+  "reported_by",
+  "classification_section",
+  "severity",
+  "category",
+  "column_break_class",
+  "jsox_relevant",
+  "jsox_deficiency_type",
+  "detail_section",
+  "description",
+  "root_cause",
+  "risk_impact",
+  "recommendation",
+  "management_response",
+  "corrective_action_section",
+  "corrective_action",
+  "status_section",
+  "status",
+  "column_break_status",
+  "closed_date",
+  "closed_by",
+  "evidence_section",
+  "evidence_file",
+  "risk_link_section",
+  "related_risk",
+  "related_control"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "AF-.#####",
+   "default": "AF-.#####"
+  },
+  {
+   "fieldname": "finding_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Finding Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "audit_engagement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Audit Engagement",
+   "options": "Audit Engagement",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "finding_date",
+   "fieldtype": "Date",
+   "label": "Finding Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "label": "Reported By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "classification_section",
+   "fieldtype": "Section Break",
+   "label": "Classification"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Critical\nHigh\nMedium\nLow\nInfo",
+   "reqd": 1
+  },
+  {
+   "default": "業務プロセス",
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "業務プロセス\nIT統制\n会計処理\nコンプライアンス\nその他",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_class",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "jsox_relevant",
+   "fieldtype": "Check",
+   "label": "J-SOX Relevant"
+  },
+  {
+   "depends_on": "eval:doc.jsox_relevant",
+   "fieldname": "jsox_deficiency_type",
+   "fieldtype": "Select",
+   "label": "J-SOX Deficiency Type",
+   "options": "\nMaterial Weakness\nSignificant Deficiency\nDeficiency"
+  },
+  {
+   "fieldname": "detail_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "root_cause",
+   "fieldtype": "Text Editor",
+   "label": "Root Cause"
+  },
+  {
+   "fieldname": "risk_impact",
+   "fieldtype": "Text Editor",
+   "label": "Risk Impact"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Text Editor",
+   "label": "Recommendation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "management_response",
+   "fieldtype": "Text Editor",
+   "label": "Management Response"
+  },
+  {
+   "fieldname": "corrective_action_section",
+   "fieldtype": "Section Break",
+   "label": "Corrective Action"
+  },
+  {
+   "fieldname": "corrective_action",
+   "fieldtype": "Link",
+   "label": "Corrective Action",
+   "options": "Corrective Action"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nRemediated\nRisk Accepted\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closed_date",
+   "fieldtype": "Date",
+   "label": "Closed Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_by",
+   "fieldtype": "Link",
+   "label": "Closed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "evidence_section",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "evidence_file",
+   "fieldtype": "Attach",
+   "label": "Evidence File"
+  },
+  {
+   "fieldname": "risk_link_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Links"
+  },
+  {
+   "fieldname": "related_risk",
+   "fieldtype": "Link",
+   "label": "Related Risk",
+   "options": "Risk Register"
+  },
+  {
+   "fieldname": "related_control",
+   "fieldtype": "Link",
+   "label": "Related Control",
+   "options": "Control Activity"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Audit",
+ "name": "Audit Finding",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Audit Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Auditor",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "finding_title",
+ "track_changes": 1
+}

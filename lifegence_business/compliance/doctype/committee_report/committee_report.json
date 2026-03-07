@@ -1,0 +1,228 @@
+{
+	"actions": [],
+	"autoname": "CR-.YYYY.-.#####",
+	"creation": "2025-01-27 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"details_section",
+		"filename",
+		"source_url",
+		"file_hash",
+		"pdf_file",
+		"column_break_1",
+		"year",
+		"company_name",
+		"company_code",
+		"market",
+		"committee_section",
+		"auditor",
+		"committee_members",
+		"purpose",
+		"column_break_2",
+		"total_pages",
+		"report_date",
+		"processing_section",
+		"indexing_status",
+		"classification_status",
+		"column_break_3",
+		"chunk_count",
+		"indexed_at",
+		"classified_at",
+		"classifications_section",
+		"classifications",
+		"ai_summary_section",
+		"ai_summary"
+	],
+	"fields": [
+		{
+			"fieldname": "details_section",
+			"fieldtype": "Section Break",
+			"label": "Report Details"
+		},
+		{
+			"fieldname": "filename",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Filename",
+			"reqd": 1
+		},
+		{
+			"fieldname": "source_url",
+			"fieldtype": "Data",
+			"label": "Source URL",
+			"options": "URL"
+		},
+		{
+			"fieldname": "file_hash",
+			"fieldtype": "Data",
+			"label": "File Hash",
+			"read_only": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "pdf_file",
+			"fieldtype": "Attach",
+			"label": "PDF File"
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "year",
+			"fieldtype": "Int",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Year",
+			"reqd": 1
+		},
+		{
+			"fieldname": "company_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Company Name",
+			"reqd": 1
+		},
+		{
+			"fieldname": "company_code",
+			"fieldtype": "Data",
+			"in_standard_filter": 1,
+			"label": "Company Code"
+		},
+		{
+			"fieldname": "market",
+			"fieldtype": "Data",
+			"in_standard_filter": 1,
+			"label": "Market"
+		},
+		{
+			"fieldname": "committee_section",
+			"fieldtype": "Section Break",
+			"label": "Committee Information"
+		},
+		{
+			"fieldname": "auditor",
+			"fieldtype": "Data",
+			"label": "Auditor"
+		},
+		{
+			"fieldname": "committee_members",
+			"fieldtype": "Small Text",
+			"label": "Committee Members"
+		},
+		{
+			"fieldname": "purpose",
+			"fieldtype": "Small Text",
+			"label": "Purpose"
+		},
+		{
+			"fieldname": "column_break_2",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "total_pages",
+			"fieldtype": "Int",
+			"label": "Total Pages"
+		},
+		{
+			"fieldname": "report_date",
+			"fieldtype": "Date",
+			"label": "Report Date"
+		},
+		{
+			"fieldname": "processing_section",
+			"fieldtype": "Section Break",
+			"label": "Processing Status"
+		},
+		{
+			"fieldname": "indexing_status",
+			"fieldtype": "Select",
+			"default": "Pending",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Indexing Status",
+			"options": "Pending\nProcessing\nIndexed\nFailed"
+		},
+		{
+			"fieldname": "classification_status",
+			"fieldtype": "Select",
+			"default": "Pending",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Classification Status",
+			"options": "Pending\nProcessing\nClassified\nFailed"
+		},
+		{
+			"fieldname": "column_break_3",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "chunk_count",
+			"fieldtype": "Int",
+			"label": "Chunk Count",
+			"read_only": 1
+		},
+		{
+			"fieldname": "indexed_at",
+			"fieldtype": "Datetime",
+			"label": "Indexed At",
+			"read_only": 1
+		},
+		{
+			"fieldname": "classified_at",
+			"fieldtype": "Datetime",
+			"label": "Classified At",
+			"read_only": 1
+		},
+		{
+			"fieldname": "classifications_section",
+			"fieldtype": "Section Break",
+			"label": "Classifications"
+		},
+		{
+			"fieldname": "classifications",
+			"fieldtype": "Table",
+			"label": "Classifications",
+			"options": "Report Classification"
+		},
+		{
+			"fieldname": "ai_summary_section",
+			"fieldtype": "Section Break",
+			"label": "AI Summary"
+		},
+		{
+			"fieldname": "ai_summary",
+			"fieldtype": "Text Editor",
+			"label": "AI Summary"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2025-01-27 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Compliance",
+	"name": "Committee Report",
+	"naming_rule": "Expression",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"title_field": "company_name",
+	"track_changes": 1
+}

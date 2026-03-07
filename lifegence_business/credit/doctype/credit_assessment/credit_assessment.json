@@ -1,0 +1,351 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-03-03 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "customer",
+    "customer_name",
+    "column_break_basic",
+    "company",
+    "assessment_type",
+    "assessment_date",
+    "status",
+    "requested_amount",
+    "financial_section",
+    "revenue",
+    "profit",
+    "capital",
+    "column_break_financial",
+    "years_in_business",
+    "employee_count",
+    "latest_financial_year",
+    "financial_data_source",
+    "transaction_section",
+    "payment_history_score",
+    "existing_transaction_months",
+    "column_break_transaction",
+    "average_monthly_transaction",
+    "max_overdue_days",
+    "risk_section",
+    "risk_score",
+    "risk_grade",
+    "column_break_risk",
+    "recommended_limit",
+    "result_section",
+    "approved_amount",
+    "reviewer",
+    "review_comment",
+    "column_break_result",
+    "approved_by",
+    "approved_date",
+    "rejection_reason",
+    "valid_until",
+    "related_section",
+    "anti_social_check",
+    "previous_assessment",
+    "column_break_related",
+    "remarks",
+    "attachment"
+  ],
+  "fields": [
+    {
+      "default": "CRA-.#####",
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "hidden": 1,
+      "label": "Naming Series",
+      "options": "CRA-.#####"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "取引先",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fetch_from": "customer.customer_name",
+      "fieldname": "customer_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "取引先名",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "会社",
+      "options": "Company"
+    },
+    {
+      "default": "新規取引",
+      "fieldname": "assessment_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "審査種別",
+      "options": "新規取引\n定期見直し\n増額申請\n緊急審査",
+      "reqd": 1
+    },
+    {
+      "default": "Today",
+      "fieldname": "assessment_date",
+      "fieldtype": "Date",
+      "label": "審査実施日",
+      "reqd": 1
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "ステータス",
+      "options": "Draft\nUnder Review\nApproved\nRejected"
+    },
+    {
+      "fieldname": "requested_amount",
+      "fieldtype": "Currency",
+      "label": "申請与信枠",
+      "reqd": 1
+    },
+    {
+      "fieldname": "financial_section",
+      "fieldtype": "Section Break",
+      "label": "財務情報"
+    },
+    {
+      "fieldname": "revenue",
+      "fieldtype": "Currency",
+      "label": "売上高"
+    },
+    {
+      "fieldname": "profit",
+      "fieldtype": "Currency",
+      "label": "営業利益"
+    },
+    {
+      "fieldname": "capital",
+      "fieldtype": "Currency",
+      "label": "資本金"
+    },
+    {
+      "fieldname": "column_break_financial",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "years_in_business",
+      "fieldtype": "Int",
+      "label": "業歴（年数）"
+    },
+    {
+      "fieldname": "employee_count",
+      "fieldtype": "Int",
+      "label": "従業員数"
+    },
+    {
+      "fieldname": "latest_financial_year",
+      "fieldtype": "Data",
+      "label": "直近決算年度"
+    },
+    {
+      "default": "手動入力",
+      "fieldname": "financial_data_source",
+      "fieldtype": "Select",
+      "label": "財務データ取得元",
+      "options": "手動入力\nTDB\nTSR\n決算書確認"
+    },
+    {
+      "fieldname": "transaction_section",
+      "fieldtype": "Section Break",
+      "label": "取引実績"
+    },
+    {
+      "fieldname": "payment_history_score",
+      "fieldtype": "Int",
+      "label": "支払実績スコア",
+      "description": "0〜100。過去の支払遅延頻度・日数に基づく"
+    },
+    {
+      "fieldname": "existing_transaction_months",
+      "fieldtype": "Int",
+      "label": "既存取引期間（月数）"
+    },
+    {
+      "fieldname": "column_break_transaction",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "average_monthly_transaction",
+      "fieldtype": "Currency",
+      "label": "月間平均取引額"
+    },
+    {
+      "fieldname": "max_overdue_days",
+      "fieldtype": "Int",
+      "label": "過去最大延滞日数"
+    },
+    {
+      "fieldname": "risk_section",
+      "fieldtype": "Section Break",
+      "label": "リスク評価"
+    },
+    {
+      "fieldname": "risk_score",
+      "fieldtype": "Int",
+      "label": "リスクスコア",
+      "read_only": 1,
+      "description": "0〜100（自動計算）"
+    },
+    {
+      "fieldname": "risk_grade",
+      "fieldtype": "Select",
+      "label": "リスクグレード",
+      "options": "\nA\nB\nC\nD\nE"
+    },
+    {
+      "fieldname": "column_break_risk",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "recommended_limit",
+      "fieldtype": "Currency",
+      "label": "推奨与信枠",
+      "read_only": 1
+    },
+    {
+      "fieldname": "result_section",
+      "fieldtype": "Section Break",
+      "label": "審査結果"
+    },
+    {
+      "fieldname": "approved_amount",
+      "fieldtype": "Currency",
+      "label": "承認与信枠"
+    },
+    {
+      "fieldname": "reviewer",
+      "fieldtype": "Link",
+      "label": "審査担当者",
+      "options": "User"
+    },
+    {
+      "fieldname": "review_comment",
+      "fieldtype": "Small Text",
+      "label": "審査コメント"
+    },
+    {
+      "fieldname": "column_break_result",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "承認者",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "approved_date",
+      "fieldtype": "Date",
+      "label": "承認日",
+      "read_only": 1
+    },
+    {
+      "fieldname": "rejection_reason",
+      "fieldtype": "Small Text",
+      "label": "却下理由"
+    },
+    {
+      "fieldname": "valid_until",
+      "fieldtype": "Date",
+      "label": "有効期限"
+    },
+    {
+      "fieldname": "related_section",
+      "fieldtype": "Section Break",
+      "label": "関連情報",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "anti_social_check",
+      "fieldtype": "Link",
+      "label": "反社チェック",
+      "options": "Anti-Social Check"
+    },
+    {
+      "fieldname": "previous_assessment",
+      "fieldtype": "Link",
+      "label": "前回審査",
+      "options": "Credit Assessment"
+    },
+    {
+      "fieldname": "column_break_related",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "備考"
+    },
+    {
+      "fieldname": "attachment",
+      "fieldtype": "Attach",
+      "label": "添付資料"
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 0,
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Credit Assessment",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Approver",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

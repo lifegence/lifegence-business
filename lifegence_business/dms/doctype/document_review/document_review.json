@@ -1,0 +1,141 @@
+{
+	"actions": [],
+	"autoname": "naming_series:",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"naming_series",
+		"document",
+		"review_type",
+		"column_break_basic",
+		"status",
+		"reviewer",
+		"requested_by",
+		"section_break_review",
+		"review_comment",
+		"section_break_meta",
+		"reviewed_on"
+	],
+	"fields": [
+		{
+			"default": "DREV-.#####",
+			"fieldname": "naming_series",
+			"fieldtype": "Select",
+			"hidden": 1,
+			"label": "Naming Series",
+			"options": "DREV-.#####"
+		},
+		{
+			"fieldname": "document",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "文書",
+			"options": "Managed Document",
+			"reqd": 1
+		},
+		{
+			"fieldname": "review_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "レビュー種別",
+			"options": "新規承認\n改訂承認\n定期レビュー",
+			"reqd": 1
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"default": "Pending",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "ステータス",
+			"options": "Pending\nApproved\nRejected"
+		},
+		{
+			"fieldname": "reviewer",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "レビュアー",
+			"options": "User",
+			"reqd": 1
+		},
+		{
+			"fieldname": "requested_by",
+			"fieldtype": "Link",
+			"label": "依頼者",
+			"options": "User",
+			"read_only": 1
+		},
+		{
+			"fieldname": "section_break_review",
+			"fieldtype": "Section Break",
+			"label": "レビューコメント"
+		},
+		{
+			"fieldname": "review_comment",
+			"fieldtype": "Text Editor",
+			"label": "レビューコメント"
+		},
+		{
+			"fieldname": "section_break_meta",
+			"fieldtype": "Section Break"
+		},
+		{
+			"fieldname": "reviewed_on",
+			"fieldtype": "Datetime",
+			"label": "レビュー日時",
+			"read_only": 1
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "Document Review",
+	"naming_rule": "By \"Naming Series\" field",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS User",
+			"share": 1,
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

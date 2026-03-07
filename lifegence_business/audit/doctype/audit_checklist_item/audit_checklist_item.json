@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_number",
+  "description",
+  "expected_control",
+  "control_reference",
+  "result",
+  "evidence",
+  "evidence_description",
+  "tested_by",
+  "tested_date",
+  "comments",
+  "finding_link"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Item Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "expected_control",
+   "fieldtype": "Small Text",
+   "label": "Expected Control",
+   "reqd": 1
+  },
+  {
+   "fieldname": "control_reference",
+   "fieldtype": "Data",
+   "label": "Control Reference"
+  },
+  {
+   "default": "Not Tested",
+   "fieldname": "result",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Result",
+   "options": "Conforming\nNon-conforming\nNot Applicable\nNot Tested",
+   "reqd": 1
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Attach",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "evidence_description",
+   "fieldtype": "Small Text",
+   "label": "Evidence Description"
+  },
+  {
+   "fieldname": "tested_by",
+   "fieldtype": "Link",
+   "label": "Tested By",
+   "options": "User"
+  },
+  {
+   "fieldname": "tested_date",
+   "fieldtype": "Date",
+   "label": "Tested Date"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Comments"
+  },
+  {
+   "fieldname": "finding_link",
+   "fieldtype": "Link",
+   "label": "Finding Link",
+   "options": "Audit Finding"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Audit",
+ "name": "Audit Checklist Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

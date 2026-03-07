@@ -1,0 +1,245 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-03-03 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "customer",
+    "customer_name",
+    "column_break_basic",
+    "company",
+    "check_info_section",
+    "check_date",
+    "check_source",
+    "column_break_check",
+    "check_method",
+    "reference_number",
+    "result_section",
+    "result",
+    "result_detail",
+    "column_break_result",
+    "risk_indicators",
+    "personnel_section",
+    "checked_by",
+    "column_break_personnel",
+    "verified_by",
+    "verified_date",
+    "validity_section",
+    "valid_until",
+    "column_break_validity",
+    "requires_renewal",
+    "attachment_section",
+    "attachment",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "default": "ASC-.#####",
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "hidden": 1,
+      "label": "Naming Series",
+      "options": "ASC-.#####"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "取引先",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fetch_from": "customer.customer_name",
+      "fieldname": "customer_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "取引先名",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "会社",
+      "options": "Company"
+    },
+    {
+      "fieldname": "check_info_section",
+      "fieldtype": "Section Break",
+      "label": "チェック情報"
+    },
+    {
+      "default": "Today",
+      "fieldname": "check_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "チェック実施日",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_source",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "チェック情報源",
+      "options": "帝国データバンク\n東京商工リサーチ\n自社調査\n警察照会",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_check",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "データベース照会",
+      "fieldname": "check_method",
+      "fieldtype": "Select",
+      "label": "チェック方法",
+      "options": "データベース照会\n書面調査\n現地調査\nAPI自動照会"
+    },
+    {
+      "fieldname": "reference_number",
+      "fieldtype": "Data",
+      "label": "照会番号"
+    },
+    {
+      "fieldname": "result_section",
+      "fieldtype": "Section Break",
+      "label": "チェック結果"
+    },
+    {
+      "fieldname": "result",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "結果",
+      "options": "問題なし\n要注意\n該当あり",
+      "reqd": 1
+    },
+    {
+      "fieldname": "result_detail",
+      "fieldtype": "Small Text",
+      "label": "結果詳細"
+    },
+    {
+      "fieldname": "column_break_result",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "risk_indicators",
+      "fieldtype": "Small Text",
+      "label": "リスク指標"
+    },
+    {
+      "fieldname": "personnel_section",
+      "fieldtype": "Section Break",
+      "label": "担当"
+    },
+    {
+      "fieldname": "checked_by",
+      "fieldtype": "Link",
+      "label": "チェック実施者",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_personnel",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "verified_by",
+      "fieldtype": "Link",
+      "label": "確認者",
+      "options": "User"
+    },
+    {
+      "fieldname": "verified_date",
+      "fieldtype": "Date",
+      "label": "確認日"
+    },
+    {
+      "fieldname": "validity_section",
+      "fieldtype": "Section Break",
+      "label": "有効期限"
+    },
+    {
+      "fieldname": "valid_until",
+      "fieldtype": "Date",
+      "label": "有効期限"
+    },
+    {
+      "fieldname": "column_break_validity",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "requires_renewal",
+      "fieldtype": "Check",
+      "label": "更新要否",
+      "read_only": 1
+    },
+    {
+      "fieldname": "attachment_section",
+      "fieldtype": "Section Break",
+      "label": "添付・備考",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "attachment",
+      "fieldtype": "Attach",
+      "label": "添付資料"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Text",
+      "label": "備考"
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 0,
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Anti-Social Check",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Approver",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Manager",
+      "write": 1
+    }
+  ],
+  "sort_field": "check_date",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

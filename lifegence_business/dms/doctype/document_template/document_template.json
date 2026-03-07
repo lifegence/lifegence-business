@@ -1,0 +1,117 @@
+{
+	"actions": [],
+	"autoname": "field:template_name",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"template_name",
+		"document_type",
+		"column_break_basic",
+		"folder",
+		"enabled",
+		"section_break_file",
+		"template_file",
+		"section_break_description",
+		"description"
+	],
+	"fields": [
+		{
+			"fieldname": "template_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "テンプレート名",
+			"reqd": 1,
+			"unique": 1
+		},
+		{
+			"fieldname": "document_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "文書種別",
+			"options": "規程\nマニュアル\n契約書\n申請書\n議事録\n報告書\nその他"
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "folder",
+			"fieldtype": "Link",
+			"label": "作成先フォルダ",
+			"options": "Document Folder"
+		},
+		{
+			"default": "1",
+			"fieldname": "enabled",
+			"fieldtype": "Check",
+			"label": "有効"
+		},
+		{
+			"fieldname": "section_break_file",
+			"fieldtype": "Section Break",
+			"label": "テンプレートファイル"
+		},
+		{
+			"fieldname": "template_file",
+			"fieldtype": "Attach",
+			"label": "テンプレートファイル",
+			"reqd": 1
+		},
+		{
+			"fieldname": "section_break_description",
+			"fieldtype": "Section Break"
+		},
+		{
+			"fieldname": "description",
+			"fieldtype": "Small Text",
+			"label": "説明"
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "Document Template",
+	"naming_rule": "By fieldname",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"create": 1,
+			"delete": 1,
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1,
+			"write": 1
+		},
+		{
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS User",
+			"share": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
+}

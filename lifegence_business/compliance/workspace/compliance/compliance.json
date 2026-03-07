@@ -1,0 +1,120 @@
+{
+	"charts": [],
+	"content": "[{\"id\":\"section_1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>コンプライアンス</b></span>\",\"col\":12}},{\"id\":\"shortcut_0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"RAG Search\",\"col\":4}},{\"id\":\"shortcut_1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Committee Report\",\"col\":4}},{\"id\":\"shortcut_2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Classification Category\",\"col\":4}},{\"id\":\"shortcut_3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Compliance Settings\",\"col\":4}}]",
+	"creation": "2025-01-27 00:00:00.000000",
+	"doctype": "Workspace",
+	"for_user": "",
+	"hide_custom": 0,
+	"icon": "shield-check",
+	"idx": 0,
+	"is_hidden": 0,
+	"label": "Compliance",
+	"links": [
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Compliance Dashboard",
+			"link_count": 0,
+			"link_to": "compliance-dashboard",
+			"link_type": "Page",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Committee Report",
+			"link_count": 0,
+			"link_to": "Committee Report",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Classification Category",
+			"link_count": 0,
+			"link_to": "Classification Category",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Report Chunk",
+			"link_count": 0,
+			"link_to": "Report Chunk",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Indexing Log",
+			"link_count": 0,
+			"link_to": "Indexing Log",
+			"link_type": "DocType",
+			"onboard": 0,
+			"type": "Link"
+		},
+		{
+			"hidden": 0,
+			"is_query_report": 0,
+			"label": "Compliance Settings",
+			"link_count": 0,
+			"link_to": "Compliance Settings",
+			"link_type": "DocType",
+			"onboard": 1,
+			"type": "Link"
+		}
+	],
+	"modified": "2025-01-27 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Compliance",
+	"name": "Compliance",
+	"owner": "Administrator",
+	"parent_page": "",
+	"public": 1,
+	"restrict_to_domain": "",
+	"roles": [
+		{"role": "Compliance Manager"},
+		{"role": "Compliance User"},
+		{"role": "System Manager"}
+	],
+	"sequence_id": 1,
+	"shortcuts": [
+		{
+			"color": "Green",
+			"doc_view": "",
+			"label": "RAG Search",
+			"link_to": "compliance-dashboard",
+			"type": "Page"
+		},
+		{
+			"color": "Red",
+			"doc_view": "List",
+			"label": "Committee Report",
+			"link_to": "Committee Report",
+			"type": "DocType"
+		},
+		{
+			"color": "Blue",
+			"doc_view": "List",
+			"label": "Classification Category",
+			"link_to": "Classification Category",
+			"type": "DocType"
+		},
+		{
+			"color": "Grey",
+			"doc_view": "",
+			"label": "Compliance Settings",
+			"link_to": "Compliance Settings",
+			"type": "DocType"
+		}
+	],
+	"title": "Compliance",
+	"type": "Workspace"
+}

@@ -1,0 +1,294 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "budget_title",
+  "fiscal_year",
+  "company",
+  "column_break_basic",
+  "department",
+  "cost_center",
+  "budget_type",
+  "status",
+  "amount_section",
+  "total_annual_amount",
+  "total_revised_amount",
+  "current_actual_amount",
+  "column_break_amount",
+  "variance_amount",
+  "variance_pct",
+  "items_section",
+  "items",
+  "approval_section",
+  "prepared_by",
+  "prepared_date",
+  "department_head",
+  "column_break_approval",
+  "department_head_approved_date",
+  "approved_by",
+  "approved_date",
+  "rejection_reason",
+  "supplementary_section",
+  "budget_policy",
+  "amendments",
+  "latest_revision",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "基本情報"
+  },
+  {
+   "default": "BP-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "BP-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "予算計画名称",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "会計年度",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "会社",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "部門",
+   "options": "Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "原価センター",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "default": "Expense",
+   "fieldname": "budget_type",
+   "fieldtype": "Select",
+   "label": "予算種別",
+   "options": "Revenue\nExpense\nCapital",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "ステータス",
+   "options": "Draft\nSubmitted\nApproved\nRevised\nRejected\nCancelled"
+  },
+  {
+   "fieldname": "amount_section",
+   "fieldtype": "Section Break",
+   "label": "金額サマリー"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_annual_amount",
+   "fieldtype": "Currency",
+   "label": "年間予算合計",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_revised_amount",
+   "fieldtype": "Currency",
+   "label": "修正後年間予算合計",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "current_actual_amount",
+   "fieldtype": "Currency",
+   "label": "当期実績累計額",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_amount",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "variance_amount",
+   "fieldtype": "Currency",
+   "label": "予実差異金額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "variance_pct",
+   "fieldtype": "Percent",
+   "label": "予実差異率(%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "予算明細"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "予算計画明細",
+   "options": "Budget Plan Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "承認情報"
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "作成者",
+   "options": "User"
+  },
+  {
+   "fieldname": "prepared_date",
+   "fieldtype": "Date",
+   "label": "作成日"
+  },
+  {
+   "fieldname": "department_head",
+   "fieldtype": "Link",
+   "label": "部門長",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department_head_approved_date",
+   "fieldtype": "Date",
+   "label": "部門長承認日",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "最終承認者",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_date",
+   "fieldtype": "Date",
+   "label": "最終承認日",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "差戻理由"
+  },
+  {
+   "fieldname": "supplementary_section",
+   "fieldtype": "Section Break",
+   "label": "補足情報",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "budget_policy",
+   "fieldtype": "Text Editor",
+   "label": "予算編成方針"
+  },
+  {
+   "default": "0",
+   "fieldname": "amendments",
+   "fieldtype": "Int",
+   "label": "修正回数",
+   "read_only": 1
+  },
+  {
+   "fieldname": "latest_revision",
+   "fieldtype": "Link",
+   "label": "最新予算修正",
+   "options": "Budget Revision",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Budget Plan",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget Plan",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Budget Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "states": [],
+ "title_field": "budget_title",
+ "track_changes": 1
+}

@@ -1,0 +1,229 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_section",
+  "naming_series",
+  "budget_plan",
+  "fiscal_year",
+  "department",
+  "column_break_basic",
+  "cost_center",
+  "forecast_month",
+  "forecast_date",
+  "forecast_method",
+  "status",
+  "amount_section",
+  "approved_budget_amount",
+  "actual_to_date",
+  "forecast_remaining",
+  "column_break_amount",
+  "forecast_to_year_end",
+  "variance_from_budget",
+  "variance_pct",
+  "items_section",
+  "forecast_items",
+  "notes_section",
+  "notes",
+  "risk_factors",
+  "prepared_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_section",
+   "fieldtype": "Section Break",
+   "label": "基本情報"
+  },
+  {
+   "default": "BF-.YYYY.-",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "BF-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "budget_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "予算計画",
+   "options": "Budget Plan",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "budget_plan.fiscal_year",
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "label": "会計年度",
+   "options": "Fiscal Year",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "budget_plan.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "部門",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "budget_plan.cost_center",
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "原価センター",
+   "options": "Cost Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "forecast_month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "見込み対象月",
+   "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
+   "reqd": 1
+  },
+  {
+   "fieldname": "forecast_date",
+   "fieldtype": "Date",
+   "label": "見込み作成日",
+   "reqd": 1
+  },
+  {
+   "default": "Linear",
+   "fieldname": "forecast_method",
+   "fieldtype": "Select",
+   "label": "計算方式",
+   "options": "Linear\nAverage\nTrend\nManual"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "ステータス",
+   "options": "Draft\nFinal"
+  },
+  {
+   "fieldname": "amount_section",
+   "fieldtype": "Section Break",
+   "label": "金額サマリー"
+  },
+  {
+   "default": "0",
+   "fieldname": "approved_budget_amount",
+   "fieldtype": "Currency",
+   "label": "承認済み予算額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "actual_to_date",
+   "fieldtype": "Currency",
+   "label": "実績累計額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "forecast_remaining",
+   "fieldtype": "Currency",
+   "label": "残期間見込み額"
+  },
+  {
+   "fieldname": "column_break_amount",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "forecast_to_year_end",
+   "fieldtype": "Currency",
+   "label": "通期着地見込み額",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "variance_from_budget",
+   "fieldtype": "Currency",
+   "label": "予算差異",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "variance_pct",
+   "fieldtype": "Percent",
+   "label": "予算差異率(%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "科目別内訳"
+  },
+  {
+   "fieldname": "forecast_items",
+   "fieldtype": "Table",
+   "label": "着地見込み明細",
+   "options": "Budget Forecast Item"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "コメント・根拠",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "見込みの根拠"
+  },
+  {
+   "fieldname": "risk_factors",
+   "fieldtype": "Small Text",
+   "label": "リスク要因"
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "作成者",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Budget",
+ "name": "Budget Forecast",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Budget Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "desc",
+ "states": [],
+ "track_changes": 1
+}

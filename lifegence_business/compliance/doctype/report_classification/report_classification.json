@@ -1,0 +1,60 @@
+{
+	"actions": [],
+	"creation": "2025-01-27 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"layer",
+		"category_code",
+		"category_name",
+		"confidence",
+		"evidence"
+	],
+	"fields": [
+		{
+			"fieldname": "layer",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "Layer",
+			"options": "A\nB\nC",
+			"reqd": 1
+		},
+		{
+			"fieldname": "category_code",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "Category Code",
+			"reqd": 1
+		},
+		{
+			"fieldname": "category_name",
+			"fieldtype": "Data",
+			"in_list_view": 1,
+			"label": "Category Name",
+			"reqd": 1
+		},
+		{
+			"fieldname": "confidence",
+			"fieldtype": "Float",
+			"in_list_view": 1,
+			"label": "Confidence",
+			"precision": "2"
+		},
+		{
+			"fieldname": "evidence",
+			"fieldtype": "Small Text",
+			"label": "Evidence"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"istable": 1,
+	"links": [],
+	"modified": "2025-01-27 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Compliance",
+	"name": "Report Classification",
+	"owner": "Administrator",
+	"permissions": [],
+	"sort_field": "creation",
+	"sort_order": "ASC"
+}

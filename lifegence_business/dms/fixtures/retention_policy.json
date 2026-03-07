@@ -1,0 +1,38 @@
+[
+	{
+		"doctype": "Retention Policy",
+		"name": "法定7年保存",
+		"policy_name": "法定7年保存",
+		"retention_years": 7,
+		"description": "税法等で定められた7年間の保存義務",
+		"action_on_expiry": "Notify",
+		"enabled": 1
+	},
+	{
+		"doctype": "Retention Policy",
+		"name": "法定10年保存",
+		"policy_name": "法定10年保存",
+		"retention_years": 10,
+		"description": "会社法等で定められた10年間の保存義務",
+		"action_on_expiry": "Notify",
+		"enabled": 1
+	},
+	{
+		"doctype": "Retention Policy",
+		"name": "永久保存",
+		"policy_name": "永久保存",
+		"retention_years": 0,
+		"description": "永久に保存する文書（定款・登記等）",
+		"action_on_expiry": "Notify",
+		"enabled": 1
+	},
+	{
+		"doctype": "Retention Policy",
+		"name": "3年保存",
+		"policy_name": "3年保存",
+		"retention_years": 3,
+		"description": "3年間の保存後にアーカイブ",
+		"action_on_expiry": "Archive",
+		"enabled": 1
+	}
+]

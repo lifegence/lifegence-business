@@ -1,0 +1,99 @@
+{
+	"actions": [],
+	"autoname": "naming_series:",
+	"creation": "2026-03-03 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"naming_series",
+		"document",
+		"access_type",
+		"column_break_basic",
+		"user",
+		"accessed_on",
+		"ip_address"
+	],
+	"fields": [
+		{
+			"default": "DAL-.#####",
+			"fieldname": "naming_series",
+			"fieldtype": "Select",
+			"hidden": 1,
+			"label": "Naming Series",
+			"options": "DAL-.#####"
+		},
+		{
+			"fieldname": "document",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "文書",
+			"options": "Managed Document",
+			"reqd": 1
+		},
+		{
+			"fieldname": "access_type",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "アクセス種別",
+			"options": "View\nDownload\nPrint",
+			"read_only": 1,
+			"reqd": 1
+		},
+		{
+			"fieldname": "column_break_basic",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "user",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "ユーザー",
+			"options": "User",
+			"read_only": 1
+		},
+		{
+			"fieldname": "accessed_on",
+			"fieldtype": "Datetime",
+			"in_list_view": 1,
+			"label": "アクセス日時",
+			"read_only": 1
+		},
+		{
+			"fieldname": "ip_address",
+			"fieldtype": "Data",
+			"label": "IPアドレス",
+			"read_only": 1
+		}
+	],
+	"links": [],
+	"modified": "2026-03-03 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "DMS",
+	"name": "Document Access Log",
+	"naming_rule": "By \"Naming Series\" field",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"share": 1
+		},
+		{
+			"email": 1,
+			"export": 1,
+			"print": 1,
+			"read": 1,
+			"report": 1,
+			"role": "DMS Manager",
+			"share": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 0
+}

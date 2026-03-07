@@ -1,0 +1,264 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-02-09 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "title",
+  "contract_type",
+  "cb_contract_info",
+  "status",
+  "priority",
+  "parties_section",
+  "party_name",
+  "party_type",
+  "cb_parties",
+  "counterparty_name",
+  "counterparty_contact",
+  "dates_section",
+  "start_date",
+  "end_date",
+  "cb_dates",
+  "auto_renew",
+  "renewal_notice_days",
+  "financial_section",
+  "contract_amount",
+  "currency",
+  "cb_financial",
+  "payment_terms",
+  "content_section",
+  "description",
+  "terms_and_conditions",
+  "approval_section",
+  "current_approver",
+  "approved_by",
+  "cb_approval",
+  "approved_date",
+  "attachment_section",
+  "contract_file"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CTR-.YYYY.-",
+   "default": "CTR-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contract Type",
+   "options": "業務委託契約\n売買契約\n賃貸借契約\n秘密保持契約\n雇用契約\nライセンス契約\nその他",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_contract_info",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Approval\nApproved\nActive\nExpired\nTerminated\nRejected",
+   "default": "Draft"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nUrgent",
+   "default": "Medium"
+  },
+  {
+   "fieldname": "parties_section",
+   "fieldtype": "Section Break",
+   "label": "Parties"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Our Entity Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "label": "Our Role",
+   "options": "甲 (Party A)\n乙 (Party B)",
+   "default": "甲 (Party A)"
+  },
+  {
+   "fieldname": "cb_parties",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "counterparty_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Counterparty Name (相手方)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "counterparty_contact",
+   "fieldtype": "Data",
+   "label": "Counterparty Contact"
+  },
+  {
+   "fieldname": "dates_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Period"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "cb_dates",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auto_renew",
+   "fieldtype": "Check",
+   "label": "Auto Renew",
+   "default": "0"
+  },
+  {
+   "fieldname": "renewal_notice_days",
+   "fieldtype": "Int",
+   "label": "Renewal Notice Days",
+   "default": "30",
+   "depends_on": "auto_renew"
+  },
+  {
+   "fieldname": "financial_section",
+   "fieldtype": "Section Break",
+   "label": "Financial"
+  },
+  {
+   "fieldname": "contract_amount",
+   "fieldtype": "Currency",
+   "label": "Contract Amount"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "default": "JPY"
+  },
+  {
+   "fieldname": "cb_financial",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Small Text",
+   "label": "Payment Terms"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "current_approver",
+   "fieldtype": "Link",
+   "label": "Current Approver",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_date",
+   "fieldtype": "Date",
+   "label": "Approved Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "attachment_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "contract_file",
+   "fieldtype": "Attach",
+   "label": "Contract File"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-02-09 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Contract Approval",
+ "name": "Contract",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "System Manager",
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

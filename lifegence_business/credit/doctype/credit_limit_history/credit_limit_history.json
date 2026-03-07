@@ -1,0 +1,186 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-03-03 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "credit_limit",
+    "customer",
+    "column_break_basic",
+    "company",
+    "change_date",
+    "amount_section",
+    "previous_amount",
+    "new_amount",
+    "column_break_amount",
+    "change_amount",
+    "reason_section",
+    "change_reason",
+    "change_detail",
+    "column_break_reason",
+    "assessment",
+    "changed_by"
+  ],
+  "fields": [
+    {
+      "default": "CLH-.#####",
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "hidden": 1,
+      "label": "Naming Series",
+      "options": "CLH-.#####"
+    },
+    {
+      "fieldname": "credit_limit",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "与信枠",
+      "options": "Credit Limit",
+      "reqd": 1
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "取引先",
+      "options": "Customer",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "会社",
+      "options": "Company",
+      "read_only": 1
+    },
+    {
+      "default": "Now",
+      "fieldname": "change_date",
+      "fieldtype": "Datetime",
+      "in_list_view": 1,
+      "label": "変更日時",
+      "reqd": 1
+    },
+    {
+      "fieldname": "amount_section",
+      "fieldtype": "Section Break",
+      "label": "金額"
+    },
+    {
+      "fieldname": "previous_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "変更前限度額",
+      "reqd": 1
+    },
+    {
+      "fieldname": "new_amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "変更後限度額",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_amount",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "change_amount",
+      "fieldtype": "Currency",
+      "label": "変更差額",
+      "read_only": 1
+    },
+    {
+      "fieldname": "reason_section",
+      "fieldtype": "Section Break",
+      "label": "変更理由"
+    },
+    {
+      "fieldname": "change_reason",
+      "fieldtype": "Select",
+      "label": "変更理由",
+      "options": "新規設定\n定期見直し\n増額承認\n減額\n一時停止\n再開\n緊急変更",
+      "reqd": 1
+    },
+    {
+      "fieldname": "change_detail",
+      "fieldtype": "Small Text",
+      "label": "詳細説明"
+    },
+    {
+      "fieldname": "column_break_reason",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "assessment",
+      "fieldtype": "Link",
+      "label": "関連審査",
+      "options": "Credit Assessment"
+    },
+    {
+      "fieldname": "changed_by",
+      "fieldtype": "Link",
+      "label": "変更者",
+      "options": "User",
+      "read_only": 1,
+      "reqd": 1
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 0,
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Credit Limit History",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Approver",
+      "share": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Credit Manager",
+      "share": 1
+    },
+    {
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Sales User"
+    }
+  ],
+  "sort_field": "change_date",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

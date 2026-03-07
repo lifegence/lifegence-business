@@ -1,0 +1,85 @@
+{
+	"actions": [],
+	"autoname": "hash",
+	"creation": "2025-01-27 00:00:00.000000",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"report",
+		"operation",
+		"status",
+		"column_break_1",
+		"duration_seconds",
+		"details_section",
+		"message"
+	],
+	"fields": [
+		{
+			"fieldname": "report",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Report",
+			"options": "Committee Report"
+		},
+		{
+			"fieldname": "operation",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Operation",
+			"options": "Register\nExtract Text\nChunk\nEmbed\nIndex\nClassify\nDelete",
+			"reqd": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"in_standard_filter": 1,
+			"label": "Status",
+			"options": "Started\nSuccess\nFailed",
+			"reqd": 1
+		},
+		{
+			"fieldname": "column_break_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "duration_seconds",
+			"fieldtype": "Float",
+			"in_list_view": 1,
+			"label": "Duration (seconds)",
+			"precision": "2"
+		},
+		{
+			"fieldname": "details_section",
+			"fieldtype": "Section Break",
+			"label": "Details"
+		},
+		{
+			"fieldname": "message",
+			"fieldtype": "Small Text",
+			"label": "Message"
+		}
+	],
+	"index_web_pages_for_search": 0,
+	"links": [],
+	"modified": "2025-01-27 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "Compliance",
+	"name": "Indexing Log",
+	"naming_rule": "Random",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"create": 1,
+			"delete": 1,
+			"read": 1,
+			"report": 1,
+			"role": "System Manager",
+			"write": 1
+		}
+	],
+	"sort_field": "creation",
+	"sort_order": "DESC"
+}

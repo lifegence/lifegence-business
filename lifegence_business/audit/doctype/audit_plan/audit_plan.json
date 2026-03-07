@@ -1,0 +1,241 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "plan_title",
+  "fiscal_year",
+  "company",
+  "column_break_basic",
+  "plan_period_start",
+  "plan_period_end",
+  "responsibility_section",
+  "audit_manager",
+  "column_break_resp",
+  "approved_by",
+  "approval_date",
+  "status_section",
+  "status",
+  "plan_content_section",
+  "audit_policy",
+  "risk_based_approach",
+  "resource_allocation",
+  "summary_section",
+  "planned_audits",
+  "completed_audits",
+  "column_break_summary",
+  "total_findings",
+  "critical_findings",
+  "open_corrective_actions",
+  "notes_section",
+  "notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "AP-.YYYY.-",
+   "default": "AP-.YYYY.-"
+  },
+  {
+   "fieldname": "plan_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Plan Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fiscal Year",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_basic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "plan_period_start",
+   "fieldtype": "Date",
+   "label": "Plan Period Start",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plan_period_end",
+   "fieldtype": "Date",
+   "label": "Plan Period End",
+   "reqd": 1
+  },
+  {
+   "fieldname": "responsibility_section",
+   "fieldtype": "Section Break",
+   "label": "Responsibility"
+  },
+  {
+   "fieldname": "audit_manager",
+   "fieldtype": "Link",
+   "label": "Audit Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_resp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nApproved\nIn Progress\nCompleted\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "plan_content_section",
+   "fieldtype": "Section Break",
+   "label": "Plan Content"
+  },
+  {
+   "fieldname": "audit_policy",
+   "fieldtype": "Text Editor",
+   "label": "Audit Policy"
+  },
+  {
+   "fieldname": "risk_based_approach",
+   "fieldtype": "Small Text",
+   "label": "Risk Based Approach"
+  },
+  {
+   "fieldname": "resource_allocation",
+   "fieldtype": "Small Text",
+   "label": "Resource Allocation"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "default": "0",
+   "fieldname": "planned_audits",
+   "fieldtype": "Int",
+   "label": "Planned Audits",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "completed_audits",
+   "fieldtype": "Int",
+   "label": "Completed Audits",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_summary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_findings",
+   "fieldtype": "Int",
+   "label": "Total Findings",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "critical_findings",
+   "fieldtype": "Int",
+   "label": "Critical Findings",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "open_corrective_actions",
+   "fieldtype": "Int",
+   "label": "Open Corrective Actions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Audit Plan",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Audit",
+ "name": "Audit Plan",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Audit Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Auditor"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "plan_title",
+ "track_changes": 1
+}

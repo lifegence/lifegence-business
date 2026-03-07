@@ -1,0 +1,193 @@
+{
+  "actions": [],
+  "creation": "2026-03-03 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "basic_settings_section",
+    "default_credit_period_days",
+    "auto_block_on_exceed",
+    "column_break_basic",
+    "alert_threshold_pct",
+    "review_cycle_months",
+    "risk_grade_section",
+    "grade_a_min_score",
+    "grade_b_min_score",
+    "column_break_grade",
+    "grade_c_min_score",
+    "grade_d_min_score",
+    "external_api_section",
+    "tdb_api_enabled",
+    "tdb_api_key",
+    "tdb_api_endpoint",
+    "column_break_api",
+    "tsr_api_enabled",
+    "tsr_api_key",
+    "tsr_api_endpoint",
+    "notification_section",
+    "alert_recipients",
+    "column_break_notification",
+    "send_review_reminder_days"
+  ],
+  "fields": [
+    {
+      "fieldname": "basic_settings_section",
+      "fieldtype": "Section Break",
+      "label": "基本設定"
+    },
+    {
+      "default": "365",
+      "fieldname": "default_credit_period_days",
+      "fieldtype": "Int",
+      "label": "デフォルト与信期間（日数）",
+      "description": "Credit Assessment承認時にvalid_untilを自動計算"
+    },
+    {
+      "default": "1",
+      "fieldname": "auto_block_on_exceed",
+      "fieldtype": "Check",
+      "label": "与信枠超過時に自動ブロック",
+      "description": "Sales Orderのsubmitを自動ブロック"
+    },
+    {
+      "fieldname": "column_break_basic",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "80",
+      "fieldname": "alert_threshold_pct",
+      "fieldtype": "Percent",
+      "label": "アラート閾値（%）",
+      "description": "与信使用率がこの閾値を超えた場合にアラート生成"
+    },
+    {
+      "default": "12",
+      "fieldname": "review_cycle_months",
+      "fieldtype": "Int",
+      "label": "見直しサイクル（月数）",
+      "description": "定期見直しの標準サイクル"
+    },
+    {
+      "fieldname": "risk_grade_section",
+      "fieldtype": "Section Break",
+      "label": "リスク評価基準"
+    },
+    {
+      "default": "80",
+      "fieldname": "grade_a_min_score",
+      "fieldtype": "Int",
+      "label": "グレードA最低スコア"
+    },
+    {
+      "default": "60",
+      "fieldname": "grade_b_min_score",
+      "fieldtype": "Int",
+      "label": "グレードB最低スコア"
+    },
+    {
+      "fieldname": "column_break_grade",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "40",
+      "fieldname": "grade_c_min_score",
+      "fieldtype": "Int",
+      "label": "グレードC最低スコア"
+    },
+    {
+      "default": "20",
+      "fieldname": "grade_d_min_score",
+      "fieldtype": "Int",
+      "label": "グレードD最低スコア"
+    },
+    {
+      "fieldname": "external_api_section",
+      "fieldtype": "Section Break",
+      "label": "外部API連携",
+      "collapsible": 1
+    },
+    {
+      "default": "0",
+      "fieldname": "tdb_api_enabled",
+      "fieldtype": "Check",
+      "label": "TDB API有効"
+    },
+    {
+      "fieldname": "tdb_api_key",
+      "fieldtype": "Password",
+      "label": "TDB APIキー",
+      "depends_on": "tdb_api_enabled"
+    },
+    {
+      "fieldname": "tdb_api_endpoint",
+      "fieldtype": "Data",
+      "label": "TDB APIエンドポイント",
+      "depends_on": "tdb_api_enabled"
+    },
+    {
+      "fieldname": "column_break_api",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "tsr_api_enabled",
+      "fieldtype": "Check",
+      "label": "TSR API有効"
+    },
+    {
+      "fieldname": "tsr_api_key",
+      "fieldtype": "Password",
+      "label": "TSR APIキー",
+      "depends_on": "tsr_api_enabled"
+    },
+    {
+      "fieldname": "tsr_api_endpoint",
+      "fieldtype": "Data",
+      "label": "TSR APIエンドポイント",
+      "depends_on": "tsr_api_enabled"
+    },
+    {
+      "fieldname": "notification_section",
+      "fieldtype": "Section Break",
+      "label": "通知設定"
+    },
+    {
+      "fieldname": "alert_recipients",
+      "fieldtype": "Small Text",
+      "label": "アラート通知先",
+      "description": "ロール名またはメールアドレス（カンマ区切り）"
+    },
+    {
+      "fieldname": "column_break_notification",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "30",
+      "fieldname": "send_review_reminder_days",
+      "fieldtype": "Int",
+      "label": "リマインド送信日数",
+      "description": "見直し期限の何日前に送信するか"
+    }
+  ],
+  "issingle": 1,
+  "modified": "2026-03-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Credit",
+  "name": "Credit Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "read": 1,
+      "write": 1,
+      "role": "System Manager"
+    },
+    {
+      "read": 1,
+      "role": "Credit Approver"
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

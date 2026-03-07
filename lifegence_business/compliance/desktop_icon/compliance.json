@@ -1,0 +1,21 @@
+{
+ "app": "lifegence_compliance",
+ "bg_color": "blue",
+ "creation": "2026-02-04 17:39:26.523807",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "Link",
+ "idx": 0,
+ "label": "Compliance",
+ "link": "/app/compliance",
+ "link_type": "External",
+ "modified": "2026-02-04 17:39:26.523807",
+ "modified_by": "Administrator",
+ "name": "Compliance",
+ "owner": "Administrator",
+ "parent_icon": "",
+ "restrict_removal": 0,
+ "roles": [],
+ "standard": 1
+}

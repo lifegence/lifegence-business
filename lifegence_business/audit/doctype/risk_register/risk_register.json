@@ -1,0 +1,290 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-03-03 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "risk_title",
+  "risk_id",
+  "risk_category",
+  "column_break_ident",
+  "department",
+  "risk_description",
+  "assessment_section",
+  "likelihood",
+  "impact",
+  "column_break_assess",
+  "risk_score",
+  "risk_level",
+  "control_section",
+  "current_controls",
+  "control_effectiveness",
+  "residual_section",
+  "residual_likelihood",
+  "residual_impact",
+  "column_break_residual",
+  "residual_risk_score",
+  "residual_risk_level",
+  "response_section",
+  "risk_response",
+  "mitigation_plan",
+  "management_section",
+  "risk_owner",
+  "identified_date",
+  "column_break_mgmt",
+  "review_date",
+  "status",
+  "jsox_section",
+  "jsox_relevant",
+  "jsox_assertion"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "RR-.#####",
+   "default": "RR-.#####"
+  },
+  {
+   "fieldname": "risk_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Risk Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_id",
+   "fieldtype": "Data",
+   "label": "Risk ID",
+   "unique": 1
+  },
+  {
+   "default": "業務リスク",
+   "fieldname": "risk_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Category",
+   "options": "戦略リスク\n財務リスク\n業務リスク\nコンプライアンスリスク\nITリスク\n災害リスク\nレピュテーションリスク\nその他",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ident",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_description",
+   "fieldtype": "Text Editor",
+   "label": "Risk Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assessment_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Assessment"
+  },
+  {
+   "default": "3",
+   "fieldname": "likelihood",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Likelihood",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "default": "3",
+   "fieldname": "impact",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Impact",
+   "options": "1\n2\n3\n4\n5",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_assess",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "risk_score",
+   "fieldtype": "Int",
+   "label": "Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "label": "Risk Level",
+   "options": "\nCritical\nHigh\nMedium\nLow",
+   "read_only": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Current Controls"
+  },
+  {
+   "fieldname": "current_controls",
+   "fieldtype": "Text Editor",
+   "label": "Current Controls"
+  },
+  {
+   "default": "未評価",
+   "fieldname": "control_effectiveness",
+   "fieldtype": "Select",
+   "label": "Control Effectiveness",
+   "options": "有効\n一部有効\n無効\n未評価"
+  },
+  {
+   "fieldname": "residual_section",
+   "fieldtype": "Section Break",
+   "label": "Residual Risk"
+  },
+  {
+   "fieldname": "residual_likelihood",
+   "fieldtype": "Select",
+   "label": "Residual Likelihood",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "residual_impact",
+   "fieldtype": "Select",
+   "label": "Residual Impact",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "column_break_residual",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "residual_risk_score",
+   "fieldtype": "Int",
+   "label": "Residual Risk Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "residual_risk_level",
+   "fieldtype": "Select",
+   "label": "Residual Risk Level",
+   "options": "\nCritical\nHigh\nMedium\nLow",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Response"
+  },
+  {
+   "default": "Mitigate",
+   "fieldname": "risk_response",
+   "fieldtype": "Select",
+   "label": "Risk Response",
+   "options": "Avoid\nMitigate\nTransfer\nAccept"
+  },
+  {
+   "fieldname": "mitigation_plan",
+   "fieldtype": "Text Editor",
+   "label": "Mitigation Plan"
+  },
+  {
+   "fieldname": "management_section",
+   "fieldtype": "Section Break",
+   "label": "Management"
+  },
+  {
+   "fieldname": "risk_owner",
+   "fieldtype": "Link",
+   "label": "Risk Owner",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "identified_date",
+   "fieldtype": "Date",
+   "label": "Identified Date"
+  },
+  {
+   "fieldname": "column_break_mgmt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nMitigated\nClosed\nAccepted",
+   "reqd": 1
+  },
+  {
+   "fieldname": "jsox_section",
+   "fieldtype": "Section Break",
+   "label": "J-SOX"
+  },
+  {
+   "default": "0",
+   "fieldname": "jsox_relevant",
+   "fieldtype": "Check",
+   "label": "J-SOX Relevant"
+  },
+  {
+   "depends_on": "eval:doc.jsox_relevant",
+   "fieldname": "jsox_assertion",
+   "fieldtype": "Select",
+   "label": "J-SOX Assertion",
+   "options": "\n実在性\n網羅性\n権利と義務の帰属\n評価の妥当性\n期間配分の適切性\n表示の妥当性"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-03 00:00:00",
+ "modified_by": "Administrator",
+ "module": "Audit",
+ "name": "Risk Register",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Audit Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Risk Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Auditor"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "risk_title",
+ "track_changes": 1
+}

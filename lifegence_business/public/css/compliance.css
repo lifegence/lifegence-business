@@ -1,0 +1,161 @@
+.compliance-dashboard {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 15px;
+}
+
+/* Stats Cards */
+.stat-card {
+	text-align: center;
+	padding: 15px 10px;
+	background: var(--card-bg);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.stat-value {
+	font-size: 1.5em;
+	font-weight: 700;
+	color: var(--text-color);
+}
+
+.stat-label {
+	font-size: 0.85em;
+	color: var(--text-muted);
+	margin-top: 4px;
+}
+
+/* Search Type Toggle */
+.compliance-search-type {
+	margin-top: 4px;
+}
+
+.compliance-search-type .btn {
+	font-size: 0.8em;
+	padding: 2px 12px;
+}
+
+.compliance-search-type .btn.active {
+	background-color: var(--primary);
+	color: #fff;
+	border-color: var(--primary);
+}
+
+/* Search Results */
+.search-meta {
+	padding: 8px 0;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.result-item {
+	transition: box-shadow 0.2s, transform 0.1s;
+	border: 1px solid var(--border-color);
+}
+
+.result-item:hover {
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+	transform: translateY(-1px);
+}
+
+.result-company {
+	font-size: 1.05em;
+}
+
+.result-report-name {
+	font-size: 0.8em;
+}
+
+.result-content-preview {
+	line-height: 1.5;
+	max-height: 4.5em;
+	overflow: hidden;
+}
+
+/* Score Bar */
+.score-bar-wrapper {
+	width: 80px;
+	height: 6px;
+	background: var(--border-color);
+	border-radius: 3px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+
+.score-bar {
+	height: 100%;
+	background: var(--primary);
+	border-radius: 3px;
+	transition: width 0.3s;
+}
+
+/* Classification Badges */
+.result-classifications .badge {
+	font-size: 0.75em;
+	margin-right: 3px;
+	margin-bottom: 2px;
+}
+
+.badge-danger {
+	background-color: #e74c3c;
+	color: #fff;
+}
+
+.badge-primary {
+	background-color: #3498db;
+	color: #fff;
+}
+
+.badge-success {
+	background-color: #27ae60;
+	color: #fff;
+}
+
+.badge-light {
+	background-color: var(--bg-color);
+	color: var(--text-muted);
+	border: 1px solid var(--border-color);
+}
+
+/* Classification Filter Optgroup */
+.compliance-classification-filter optgroup {
+	font-weight: 600;
+	font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.compliance-dashboard .row > [class*="col-md-"] {
+		margin-bottom: 8px;
+	}
+
+	.score-bar-wrapper {
+		width: 60px;
+	}
+
+	.stat-card {
+		padding: 10px 8px;
+	}
+
+	.stat-value {
+		font-size: 1.2em;
+	}
+}
+
+/* Spinner */
+.spinner-border {
+	width: 2rem;
+	height: 2rem;
+	border: 0.2em solid var(--border-color);
+	border-right-color: var(--primary);
+	border-radius: 50%;
+	animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+	to {
+		transform: rotate(360deg);
+	}
+}
