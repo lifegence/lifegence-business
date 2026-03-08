@@ -1,9 +1,10 @@
 [project]
 name = "lifegence_business"
 authors = [
-    { name = "Lifegence", email = "masakazu@lifegence.co.jp"}
+    { name = "Lifegence", email = "info@lifegence.co.jp"}
 ]
 description = "Business apps for Lifegence Company OS (Contract, Compliance, Credit, Budget, Helpdesk, DMS, Audit)"
+license = {file = "LICENSE"}
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

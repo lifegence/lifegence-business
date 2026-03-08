@@ -2,7 +2,7 @@ app_name = "lifegence_business"
 app_title = "Lifegence Business"
 app_publisher = "Lifegence"
 app_description = "Business apps for Lifegence Company OS (Contract, Compliance, Credit, Budget, Helpdesk, DMS, Audit)"
-app_email = "masakazu@lifegence.co.jp"
+app_email = "info@lifegence.co.jp"
 app_license = "mit"
 
 required_apps = ["frappe", "erpnext"]
