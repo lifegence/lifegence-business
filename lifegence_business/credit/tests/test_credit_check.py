@@ -105,7 +105,7 @@ class TestCreditCheck(FrappeTestCase):
 			credit_check_passed = 0
 			credit_check_note = ""
 
-		from lifegence_business.credit.credit.services.credit_check import check_credit_on_sales_order
+		from lifegence_business.credit.services.credit_check import check_credit_on_sales_order
 
 		self.assertRaises(
 			frappe.ValidationError,
@@ -115,7 +115,7 @@ class TestCreditCheck(FrappeTestCase):
 
 	def test_risk_scoring_service(self):
 		"""Test standalone risk scoring service."""
-		from lifegence_business.credit.credit.services.risk_scoring import calculate_risk_score
+		from lifegence_business.credit.services.risk_scoring import calculate_risk_score
 
 		result = calculate_risk_score(
 			revenue=100000000,

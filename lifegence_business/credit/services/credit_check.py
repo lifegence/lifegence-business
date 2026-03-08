@@ -72,7 +72,7 @@ def check_credit_on_sales_order(doc, method=None):
 			)
 		else:
 			# Auto block off - create alert but allow submit
-			from lifegence_business.credit.credit.services.balance_calculator import _create_alert_if_not_exists
+			from lifegence_business.credit.services.balance_calculator import _create_alert_if_not_exists
 
 			_create_alert_if_not_exists(
 				customer=doc.customer,
