@@ -1,7 +1,7 @@
 app_name = "lifegence_business"
 app_title = "Lifegence Business"
 app_publisher = "Lifegence"
-app_description = "Business apps for Lifegence Company OS (Contract, Compliance, Credit, Budget, Helpdesk, DMS, Audit)"
+app_description = "Business apps for Lifegence Company OS (Contract, Credit, Budget, Helpdesk, DMS)"
 app_email = "info@lifegence.co.jp"
 app_license = "mit"
 
@@ -16,12 +16,7 @@ after_install = "lifegence_business.install.after_install"
 after_migrate = "lifegence_business.install.after_migrate"
 
 # ---------------------------------------------------------------------------
-# Includes in <head>
-# ---------------------------------------------------------------------------
-app_include_css = "/assets/lifegence_business/css/compliance.css"
-
-# ---------------------------------------------------------------------------
-# Apps screen entries (7 modules)
+# Apps screen entries (5 modules)
 # ---------------------------------------------------------------------------
 add_to_apps_screen = [
 	{
@@ -29,13 +24,6 @@ add_to_apps_screen = [
 		"logo": "/assets/lifegence_business/images/contract-approval-logo.svg",
 		"title": "契約管理",
 		"route": "/app/contract-approval",
-	},
-	{
-		"name": "lifegence_compliance",
-		"logo": "/assets/lifegence_business/images/compliance-icon.svg",
-		"title": "コンプライアンス",
-		"route": "/app/compliance",
-		"has_permission": "lifegence_business.compliance.api.has_compliance_access",
 	},
 	{
 		"name": "lifegence_credit",
@@ -61,22 +49,12 @@ add_to_apps_screen = [
 		"title": "文書管理",
 		"route": "/app/dms",
 	},
-	{
-		"name": "lifegence_audit",
-		"logo": "/assets/lifegence_business/images/audit-logo.svg",
-		"title": "内部監査",
-		"route": "/app/audit",
-	},
 ]
 
 # ---------------------------------------------------------------------------
-# DocType events (merged from compliance, credit, budget, audit)
+# DocType events (credit, budget)
 # ---------------------------------------------------------------------------
 doc_events = {
-	# Compliance
-	"Committee Report": {
-		"on_trash": "lifegence_business.compliance.services.qdrant_service.on_report_delete",
-	},
 	# Credit
 	"Sales Order": {
 		"before_submit": "lifegence_business.credit.services.credit_check.check_credit_on_sales_order",
@@ -98,17 +76,10 @@ doc_events = {
 	"Journal Entry": {
 		"before_submit": "lifegence_business.budget.utils.check_budget_availability",
 	},
-	# Audit
-	"Corrective Action": {
-		"on_update": "lifegence_business.audit.services.corrective_action_service.on_corrective_action_update",
-	},
-	"Audit Checklist Item": {
-		"on_update": "lifegence_business.audit.services.audit_service.on_checklist_item_update",
-	},
 }
 
 # ---------------------------------------------------------------------------
-# Scheduled tasks (merged from credit, budget, audit)
+# Scheduled tasks (credit, budget)
 # ---------------------------------------------------------------------------
 scheduler_events = {
 	"daily": [
@@ -119,18 +90,11 @@ scheduler_events = {
 		"lifegence_business.credit.services.alert_generator.check_anti_social_expiry",
 		# Budget alerts
 		"lifegence_business.budget.utils.check_budget_alerts",
-		# Audit daily
-		"lifegence_business.audit.services.corrective_action_service.check_overdue_actions",
-		"lifegence_business.audit.services.notification_service.send_due_reminders",
-	],
-	"weekly": [
-		# Audit weekly
-		"lifegence_business.audit.services.risk_service.check_risk_review_dates",
 	],
 }
 
 # ---------------------------------------------------------------------------
-# Fixtures (merged from credit, budget, helpdesk, dms, audit)
+# Fixtures (credit, budget, helpdesk, dms)
 # ---------------------------------------------------------------------------
 fixtures = [
 	{
@@ -151,10 +115,6 @@ fixtures = [
 					# DMS
 					"DMS Manager",
 					"DMS User",
-					# Audit
-					"Audit Manager",
-					"Auditor",
-					"Risk Manager",
 				],
 			]
 		],
