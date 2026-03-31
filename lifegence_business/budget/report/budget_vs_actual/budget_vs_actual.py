@@ -4,6 +4,8 @@
 import frappe
 from frappe.utils import flt
 
+from lifegence_business.budget.utils import get_actuals_for_accounts
+
 
 def execute(filters=None):
 	columns = get_columns()
@@ -55,29 +57,30 @@ def get_data(filters):
 		ORDER BY bp.department, bpi.account
 	""", values, as_dict=True)
 
-	data = []
+	# Group rows by (cost_center, fiscal_year, company) to batch GL queries
+	from collections import defaultdict
+	groups = defaultdict(list)
 	for row in budget_data:
-		actual = _get_actual(row.cost_center, row.account, row.fiscal_year, row.company)
-		budget = flt(row.annual_total)
-		variance = budget - actual
-		data.append({
-			"department": row.department,
-			"cost_center": row.cost_center,
-			"account": row.account,
-			"budget_amount": budget,
-			"actual_amount": actual,
-			"variance_amount": variance,
-			"variance_pct": (variance / budget * 100) if budget else 0,
-			"consumption_pct": (actual / budget * 100) if budget else 0,
-		})
+		key = (row.cost_center, row.fiscal_year, row.company)
+		groups[key].append(row)
+
+	data = []
+	for (cost_center, fiscal_year, company), rows in groups.items():
+		accounts = [r.account for r in rows]
+		actuals_map = get_actuals_for_accounts(cost_center, accounts, fiscal_year, company)
+		for row in rows:
+			actual = actuals_map.get(row.account, 0)
+			budget = flt(row.annual_total)
+			variance = budget - actual
+			data.append({
+				"department": row.department,
+				"cost_center": row.cost_center,
+				"account": row.account,
+				"budget_amount": budget,
+				"actual_amount": actual,
+				"variance_amount": variance,
+				"variance_pct": (variance / budget * 100) if budget else 0,
+				"consumption_pct": (actual / budget * 100) if budget else 0,
+			})
 	return data
 
-
-def _get_actual(cost_center, account, fiscal_year, company):
-	result = frappe.db.sql("""
-		SELECT SUM(debit - credit) as net
-		FROM `tabGL Entry`
-		WHERE cost_center = %s AND account = %s
-		  AND fiscal_year = %s AND company = %s AND is_cancelled = 0
-	""", (cost_center, account, fiscal_year, company))
-	return flt(result[0][0]) if result and result[0][0] else 0

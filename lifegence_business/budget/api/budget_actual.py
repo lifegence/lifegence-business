@@ -4,6 +4,8 @@
 import frappe
 from frappe.utils import flt, today
 
+from lifegence_business.budget.utils import get_actuals_for_accounts
+
 
 @frappe.whitelist()
 def get_budget_vs_actual(
@@ -47,9 +49,13 @@ def get_budget_vs_actual(
 				filters={"parent": plan.name},
 				fields=["account", "account_name", "annual_total"],
 			)
+			accounts = [item.account for item in items]
+			actuals_map = get_actuals_for_accounts(
+				plan.cost_center, accounts, fiscal_year, company
+			)
 			plan_actual = 0
 			for item in items:
-				actual = _get_actual(plan.cost_center, item.account, fiscal_year, company)
+				actual = actuals_map.get(item.account, 0)
 				plan_actual += actual
 				budget_amt = flt(item.annual_total)
 				total_budget += budget_amt
@@ -97,12 +103,3 @@ def get_budget_vs_actual(
 		return {"success": False, "error": str(e)}
 
 
-def _get_actual(cost_center, account, fiscal_year, company):
-	"""Get actual amount from GL Entry."""
-	result = frappe.db.sql("""
-		SELECT SUM(debit - credit)
-		FROM `tabGL Entry`
-		WHERE cost_center = %s AND account = %s
-		  AND fiscal_year = %s AND company = %s AND is_cancelled = 0
-	""", (cost_center, account, fiscal_year, company))
-	return flt(result[0][0]) if result and result[0][0] else 0

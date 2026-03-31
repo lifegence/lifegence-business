@@ -4,7 +4,13 @@
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import getdate, nowdate, add_days
+from frappe.utils import nowdate, add_days
+
+from lifegence_business.credit.services.risk_scoring import (
+	calculate_risk_score,
+	determine_grade,
+	calculate_recommended_limit,
+)
 
 
 class CreditAssessment(Document):
@@ -12,9 +18,7 @@ class CreditAssessment(Document):
 		self._validate_status_transition()
 
 	def before_save(self):
-		self._calculate_risk_score()
-		self._determine_risk_grade()
-		self._calculate_recommended_limit()
+		self._run_risk_assessment()
 
 	def on_update(self):
 		if self.status == "Approved":
@@ -55,78 +59,20 @@ class CreditAssessment(Document):
 		if self.status == "Rejected" and not self.rejection_reason:
 			frappe.throw(_("却下する場合は却下理由を入力してください。"))
 
-	def _calculate_risk_score(self):
-		"""Calculate risk score from 5 weighted factors (0-100)."""
-		score = 0
-
-		# Financial health (30 points) - based on profit margin
-		if self.revenue and self.revenue > 0 and self.profit is not None:
-			margin = (self.profit / self.revenue) * 100
-			if margin >= 5:
-				score += 30
-			elif margin >= 3:
-				score += 20
-			elif margin >= 0:
-				score += 10
-
-		# Business history (15 points)
-		years = self.years_in_business or 0
-		if years >= 10:
-			score += 15
-		elif years >= 5:
-			score += 10
-		elif years >= 3:
-			score += 5
-
-		# Capital (15 points)
-		capital = self.capital or 0
-		if capital >= 100_000_000:  # 1億円
-			score += 15
-		elif capital >= 10_000_000:  # 1000万円
-			score += 10
-		elif capital >= 3_000_000:  # 300万円
-			score += 5
-
-		# Payment history (25 points)
-		if self.payment_history_score:
-			score += round(self.payment_history_score * 0.25)
-
-		# Transaction history (15 points)
-		months = self.existing_transaction_months or 0
-		if months >= 24:
-			score += 15
-		elif months >= 12:
-			score += 10
-		elif months >= 6:
-			score += 5
-
-		self.risk_score = min(score, 100)
-
-	def _determine_risk_grade(self):
-		"""Determine risk grade (A-E) based on score."""
-		if self.risk_score is None:
-			return
-
-		settings = frappe.get_single("Credit Settings")
-		score = self.risk_score
-
-		if score >= (settings.grade_a_min_score or 80):
-			self.risk_grade = "A"
-		elif score >= (settings.grade_b_min_score or 60):
-			self.risk_grade = "B"
-		elif score >= (settings.grade_c_min_score or 40):
-			self.risk_grade = "C"
-		elif score >= (settings.grade_d_min_score or 20):
-			self.risk_grade = "D"
-		else:
-			self.risk_grade = "E"
-
-	def _calculate_recommended_limit(self):
-		"""Calculate recommended credit limit based on risk grade and transaction."""
-		monthly = self.average_monthly_transaction or 0
-		grade_multipliers = {"A": 6, "B": 4, "C": 2, "D": 1, "E": 0}
-		multiplier = grade_multipliers.get(self.risk_grade, 0)
-		self.recommended_limit = monthly * multiplier
+	def _run_risk_assessment(self):
+		"""Calculate risk score, grade, and recommended limit using shared service."""
+		result = calculate_risk_score(
+			revenue=self.revenue or 0,
+			profit=self.profit,
+			capital=self.capital or 0,
+			years_in_business=self.years_in_business or 0,
+			payment_history_score=self.payment_history_score or 0,
+			existing_transaction_months=self.existing_transaction_months or 0,
+			average_monthly_transaction=self.average_monthly_transaction or 0,
+		)
+		self.risk_score = result["score"]
+		self.risk_grade = result["grade"]
+		self.recommended_limit = result["recommended_limit"]
 
 	def _create_or_update_credit_limit(self):
 		"""Create or update Credit Limit on approval."""

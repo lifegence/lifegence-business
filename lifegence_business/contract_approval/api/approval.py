@@ -5,6 +5,7 @@ from frappe.utils import now_datetime
 @frappe.whitelist()
 def submit_for_approval(contract_name):
     """Submit a contract for approval."""
+    frappe.only_for(["Contract Manager", "System Manager"])
     contract = frappe.get_doc("Contract", contract_name)
 
     if contract.status != "Draft":
@@ -57,6 +58,7 @@ def submit_for_approval(contract_name):
 @frappe.whitelist()
 def approve_contract(contract_name, comments=None):
     """Approve a contract."""
+    frappe.only_for(["Contract Approver", "System Manager"])
     contract = frappe.get_doc("Contract", contract_name)
 
     if contract.status != "Pending Approval":
@@ -82,6 +84,7 @@ def approve_contract(contract_name, comments=None):
 @frappe.whitelist()
 def reject_contract(contract_name, comments=None):
     """Reject a contract."""
+    frappe.only_for(["Contract Approver", "System Manager"])
     contract = frappe.get_doc("Contract", contract_name)
 
     if contract.status != "Pending Approval":

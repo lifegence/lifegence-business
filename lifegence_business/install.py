@@ -11,6 +11,7 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 def after_install():
 	"""Run after app installation -- sets up all 5 modules."""
+	_install_contract_approval()
 	_install_credit()
 	_install_budget()
 	_install_helpdesk()
@@ -72,6 +73,33 @@ def _install_dms():
 	except Exception:
 		frappe.log_error("Lifegence Business [DMS]: Error during setup")
 		raise
+
+
+# ===========================================================================
+# Contract Approval helpers
+# ===========================================================================
+
+def _install_contract_approval():
+	"""Contract Approval module: roles."""
+	try:
+		_create_contract_approval_roles()
+		frappe.msgprint("Lifegence Business [Contract Approval]: Setup complete.")
+	except Exception:
+		frappe.log_error("Lifegence Business [Contract Approval]: Error during setup")
+		raise
+
+
+def _create_contract_approval_roles():
+	"""Create Contract Manager and Contract Approver roles."""
+	for role_name in ("Contract Manager", "Contract Approver"):
+		if not frappe.db.exists("Role", role_name):
+			frappe.get_doc({
+				"doctype": "Role",
+				"role_name": role_name,
+				"desk_access": 1,
+			}).insert(ignore_permissions=True)
+			frappe.logger().info(f"Business [Contract Approval]: Created role '{role_name}'")
+
 
 
 # ===========================================================================

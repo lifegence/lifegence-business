@@ -63,6 +63,7 @@ def get_check_status(customer):
 @frappe.whitelist()
 def run_anti_social_check(customer, check_source, result, result_detail=None):
 	"""Create a new anti-social check record."""
+	frappe.only_for(["Credit Manager", "Credit Approver", "System Manager"])
 	if not frappe.db.exists("Customer", customer):
 		return {"success": False, "error": _("取引先 {0} は存在しません。").format(customer)}
 

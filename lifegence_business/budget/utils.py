@@ -5,6 +5,35 @@ import frappe
 from frappe.utils import flt
 
 
+def get_actuals_for_accounts(cost_center, accounts, fiscal_year, company):
+	"""Batch-fetch GL Entry actuals for multiple accounts in one query.
+
+	Args:
+		cost_center: Cost center to filter by
+		accounts: List of account names
+		fiscal_year: Fiscal year to filter by
+		company: Company to filter by
+
+	Returns:
+		dict: {account: actual_amount}
+	"""
+	if not accounts or not fiscal_year:
+		return {}
+
+	result = frappe.db.sql("""
+		SELECT account, SUM(debit - credit) as actual
+		FROM `tabGL Entry`
+		WHERE cost_center = %s
+		  AND account IN %s
+		  AND fiscal_year = %s
+		  AND company = %s
+		  AND is_cancelled = 0
+		GROUP BY account
+	""", (cost_center, accounts, fiscal_year, company), as_dict=True)
+
+	return {row.account: flt(row.actual) for row in result}
+
+
 def check_budget_availability(doc, method):
 	"""Check budget availability before PO/JE submit."""
 	settings = frappe.get_single("Budget Settings")
@@ -99,19 +128,9 @@ def _get_budget_for_account(cost_center, account, fiscal_year, company):
 
 
 def _get_actual_for_account(cost_center, account, fiscal_year, company):
-	"""Get actual amount from GL Entry."""
-	if not fiscal_year:
-		return 0
-	result = frappe.db.sql("""
-		SELECT SUM(debit - credit) as net_amount
-		FROM `tabGL Entry`
-		WHERE cost_center = %s
-		  AND account = %s
-		  AND fiscal_year = %s
-		  AND company = %s
-		  AND is_cancelled = 0
-	""", (cost_center, account, fiscal_year, company))
-	return flt(result[0][0]) if result and result[0][0] else 0
+	"""Get actual amount from GL Entry for a single account."""
+	actuals = get_actuals_for_accounts(cost_center, [account], fiscal_year, company)
+	return actuals.get(account, 0)
 
 
 def check_budget_alerts():
@@ -133,12 +152,14 @@ def check_budget_alerts():
 			filters={"parent": plan.name},
 			fields=["account", "annual_total"],
 		)
+		accounts = [item.account for item in items]
+		actuals_map = get_actuals_for_accounts(
+			plan.cost_center, accounts, plan.fiscal_year, plan.company
+		)
 		for item in items:
-			actual = _get_actual_for_account(
-				plan.cost_center, item.account, plan.fiscal_year, plan.company
-			)
 			if not item.annual_total:
 				continue
+			actual = actuals_map.get(item.account, 0)
 			consumption_pct = (flt(actual) / flt(item.annual_total)) * 100
 			if consumption_pct >= (100 - threshold):
 				frappe.logger().warning(

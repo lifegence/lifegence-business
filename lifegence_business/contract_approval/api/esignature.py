@@ -3,6 +3,9 @@ import json
 import frappe
 from frappe.utils import add_days, now_datetime, today
 
+# Allowlist of valid webhook event types
+ALLOWED_EVENT_TYPES = {"Sent", "Viewed", "Signed", "Declined", "Expired", "Cancelled", "Error"}
+
 
 @frappe.whitelist()
 def create_signature_request(contract_name, signers, provider_name=None, expiry_days=None):
@@ -159,7 +162,15 @@ def callback_signature_complete():
     if not envelope_id or not event_type:
         frappe.throw("envelope_id and event_type are required")
 
-    # Find signature request by envelope_id
+    # Validate event_type against allowlist
+    if event_type not in ALLOWED_EVENT_TYPES:
+        frappe.logger("esignature").warning(
+            f"Webhook rejected: invalid event_type '{event_type}' "
+            f"for envelope_id '{envelope_id}' from {frappe.request.remote_addr if frappe.request else 'unknown'}"
+        )
+        frappe.throw(f"Invalid event_type: {event_type}")
+
+    # Validate envelope_id exists in our DB (prevent forged callbacks)
     requests = frappe.get_all(
         "E-Signature Request",
         filters={"envelope_id": envelope_id},
@@ -167,7 +178,18 @@ def callback_signature_complete():
         limit=1,
     )
     if not requests:
+        frappe.logger("esignature").warning(
+            f"Webhook rejected: unknown envelope_id '{envelope_id}' "
+            f"from {frappe.request.remote_addr if frappe.request else 'unknown'}"
+        )
         frappe.throw(f"No signature request found for envelope_id: {envelope_id}")
+
+    # Audit log for all webhook events
+    frappe.logger("esignature").info(
+        f"Webhook received: event_type='{event_type}' envelope_id='{envelope_id}' "
+        f"signer='{data.get('signer_email', '')}' "
+        f"from={frappe.request.remote_addr if frappe.request else 'unknown'}"
+    )
 
     request_name = requests[0]
 
