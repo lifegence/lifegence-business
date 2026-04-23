@@ -1,0 +1,24 @@
+{
+  "name": "lifegence-business-e2e",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:local": "TEST_ENV=local playwright test --project=chromium-local",
+    "test:saas": "TEST_ENV=saas playwright test --project=chromium-saas",
+    "test:coverage": "playwright test --project=chromium-local tests/99-coverage",
+    "report": "playwright show-report reports/html",
+    "extract-apis": "python3 ../lifegence_business/scripts/extract_whitelist_apis.py",
+    "seed": "cd ../../../ && bench --site dev.localhost execute lifegence_business.scripts.seed_e2e.run",
+    "full": "npm run seed && npm run extract-apis && npm test"
+  },
+  "dependencies": {
+    "@lifegence/e2e-common": "file:../../../../company-os/packages/e2e-common"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^20.11.0",
+    "dotenv": "^16.4.0",
+    "typescript": "^5.4.0"
+  }
+}

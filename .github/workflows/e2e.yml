@@ -1,0 +1,242 @@
+name: E2E Tests
+
+on:
+  pull_request:
+    paths:
+      - 'lifegence_business/**'
+      - 'e2e/**'
+      - '.github/workflows/e2e.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'lifegence_business/**'
+      - 'e2e/**'
+      - '.github/workflows/e2e.yml'
+  schedule:
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+    inputs:
+      evidence:
+        description: 'Capture full trace/video/screenshot (EVIDENCE=1)'
+        type: boolean
+        default: false
+      strict_orphan:
+        description: 'Fail on orphan DocType/API (ORPHAN_STRICT=1)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: '3.14'
+  NODE_VERSION: '24'
+
+jobs:
+  e2e:
+    name: E2E (chromium, local bench)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+
+    services:
+      mariadb:
+        image: mariadb:10.6
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test_frappe
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mariadb-admin ping -h 127.0.0.1 -uroot -proot"
+          --health-interval=10s --health-timeout=5s --health-retries=10
+      redis-cache:
+        image: redis:7-alpine
+        ports: ['13000:6379']
+      redis-queue:
+        image: redis:7-alpine
+        ports: ['11000:6379']
+
+    steps:
+      - name: Checkout lifegence-business
+        uses: actions/checkout@v4
+        with:
+          path: lifegence_business
+          fetch-depth: 1
+
+      - name: Checkout company-os (for shared e2e-common package)
+        uses: actions/checkout@v4
+        with:
+          repository: lifegence/company-os
+          path: company-os
+          fetch-depth: 1
+          token: ${{ secrets.COMPANY_OS_RO_TOKEN || github.token }}
+          sparse-checkout: |
+            packages/e2e-common
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: lifegence_business/e2e/package-lock.json
+
+      - name: Install OS deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libcups2-dev libldap2-dev libsasl2-dev libkrb5-dev \
+            libssl-dev libffi-dev mariadb-client wkhtmltopdf
+
+      - name: Install bench + frappe-deps
+        run: |
+          pip install --upgrade pip
+          pip install 'click~=8.2.0'
+          pip install frappe-bench
+
+      - name: Configure MariaDB for Frappe
+        run: |
+          mysql -h 127.0.0.1 -u root -proot -e "
+            SET GLOBAL character_set_server = 'utf8mb4';
+            SET GLOBAL collation_server = 'utf8mb4_unicode_ci';
+            CREATE DATABASE IF NOT EXISTS _test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+          "
+
+      - name: Map dev.localhost → 127.0.0.1
+        run: echo "127.0.0.1 dev.localhost" | sudo tee -a /etc/hosts
+
+      - name: Initialize bench
+        run: |
+          bench init --skip-redis-config-generation --skip-assets \
+            --frappe-branch version-16 --python $(which python) frappe-bench
+          cd frappe-bench
+          bench set-config -g redis_cache redis://127.0.0.1:13000
+          bench set-config -g redis_queue redis://127.0.0.1:11000
+          bench set-config -g redis_socketio redis://127.0.0.1:13000
+          bench set-config -g db_host 127.0.0.1
+          bench set-config -g db_port 3306
+          bench set-config -g developer_mode 1
+
+      - name: Clone erpnext (required dep)
+        working-directory: frappe-bench
+        run: |
+          git clone --branch version-16 --depth 1 \
+            https://github.com/frappe/erpnext.git apps/erpnext
+          ./env/bin/pip install -e apps/erpnext
+          if [ -s sites/apps.txt ] && [ "$(tail -c1 sites/apps.txt | wc -l)" -eq 0 ]; then
+            echo "" >> sites/apps.txt
+          fi
+          grep -qxF erpnext sites/apps.txt || echo erpnext >> sites/apps.txt
+
+      - name: Link lifegence_business app
+        working-directory: frappe-bench
+        run: |
+          ln -sfn ../../lifegence_business apps/lifegence_business
+          if [ -s sites/apps.txt ] && [ "$(tail -c1 sites/apps.txt | wc -l)" -eq 0 ]; then
+            echo "" >> sites/apps.txt
+          fi
+          grep -qxF lifegence_business sites/apps.txt || echo lifegence_business >> sites/apps.txt
+          cat sites/apps.txt
+          ./env/bin/pip install -e apps/lifegence_business
+
+      - name: Create site + install apps
+        working-directory: frappe-bench
+        run: |
+          bench new-site dev.localhost \
+            --mariadb-root-password root \
+            --admin-password admin \
+            --no-mariadb-socket
+          bench --site dev.localhost install-app erpnext
+          bench --site dev.localhost install-app lifegence_business
+
+      - name: Build web assets
+        # Limit to frappe+target to stay under 7GB runner memory budget.
+        working-directory: frappe-bench
+        run: bench build --apps frappe,lifegence_business
+
+      - name: Mark setup wizard complete
+        working-directory: frappe-bench
+        run: |
+          bench --site dev.localhost execute frappe.utils.install.complete_setup_wizard
+          bench --site dev.localhost clear-cache
+
+      - name: Seed E2E test data
+        working-directory: frappe-bench
+        run: |
+          bench --site dev.localhost execute \
+            lifegence_business.scripts.seed_e2e.run
+
+      - name: Extract whitelist APIs
+        working-directory: frappe-bench
+        run: |
+          python apps/lifegence_business/lifegence_business/scripts/extract_whitelist_apis.py
+
+      - name: Start bench in background
+        working-directory: frappe-bench
+        run: |
+          bench start > /tmp/bench.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -sf -o /dev/null http://dev.localhost:8000/api/method/ping; then
+              echo "bench up after ${i}×2s"; break
+            fi
+            sleep 2
+          done
+          curl -sf http://dev.localhost:8000/api/method/ping \
+            || { echo "=== bench.log ==="; cat /tmp/bench.log; exit 1; }
+
+      - name: "Adjust e2e-common file: path for CI layout"
+        working-directory: lifegence_business/e2e
+        run: |
+          sed -i 's|file:../../../../company-os|file:../../company-os|g' \
+            package.json package-lock.json
+
+      - name: Install Playwright
+        working-directory: lifegence_business/e2e
+        run: |
+          npm ci --install-links
+          npx playwright install --with-deps chromium
+
+      - name: Run E2E tests
+        working-directory: lifegence_business/e2e
+        env:
+          TEST_ENV: local
+          LOCAL_BASE_URL: http://dev.localhost:8000
+          ADMIN_USR: Administrator
+          ADMIN_PWD: admin
+          USER1_USR: e2e-user1@lifegence.test
+          USER1_PWD: e2etest123
+          USER2_USR: e2e-user2@lifegence.test
+          USER2_PWD: e2etest123
+          EVIDENCE: ${{ github.event.inputs.evidence == 'true' && '1' || '' }}
+          ORPHAN_STRICT: ${{ github.event.inputs.strict_orphan == 'true' && '1' || '' }}
+        run: npx playwright test --project=chromium-local
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: lifegence_business/e2e/reports/
+          retention-days: 30
+
+      - name: Upload test-results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: lifegence_business/e2e/test-results/
+          retention-days: 14
+
+      - name: Upload bench log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bench-log
+          path: /tmp/bench.log
+          retention-days: 7
